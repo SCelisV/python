@@ -212,7 +212,7 @@ for estudiante in estudiantes:
 for i in range(5):
   print ('A number:', i)
 
-# O-J-O Ejecucion: 
+# -O-J-O- Ejecución 
 #A number: 0
 #A number: 1
 #A number: 2
@@ -226,7 +226,7 @@ primes = [2, 3, 5, 7]
 for prime in primes:
     print(prime)
 
-# O-J-O Ejecucion: 
+# -O-J-O- Ejecución 
 # 2
 # 3
 # 5
@@ -239,14 +239,14 @@ a = [2, 2, 2, 1, 6, 8, 2, 4]
 for i in a:
     if i == 2:
         count = count + 1
-print("La cuenta total es %d: " %count) # O-J-O Ejecucion: La cuenta total es 4:
+print("La cuenta total es %d: " %count) # -O-J-O- Ejecución La cuenta total es 4:
 
 print("--------------------")
 
 
 for e in range(len(a)):
     print(e,a[e])
-    # O-J-O Ejecucion: 
+    # -O-J-O- Ejecución 
     # 0 2
     # 1 2
     # 2 2
@@ -257,12 +257,12 @@ for e in range(len(a)):
     # 7 4   
     if e == 2:
         count = count + 1
-print("La cuenta total es: " + str(count)) # O-J-O Ejecucion: La cuenta total es: 5
+print("La cuenta total es: " + str(count)) # -O-J-O- Ejecución La cuenta total es: 5
 
 print("--------------------")
 for x in range(5):
     print(x)
-    # O-J-O Ejecucion: 
+    # -O-J-O- Ejecución 
     # 0
     # 1
     # 2
@@ -273,7 +273,7 @@ print("--------------------")
 
 for x in range(3, 6):
     print(x)
-    # O-J-O Ejecucion: 
+    # -O-J-O- Ejecución 
     # 3
     # 4
     # 5
@@ -282,7 +282,7 @@ for x in range(3, 6):
 print("--------------------")
 for x in range(3, 8, 2):
     print(x)
-    # O-J-O Ejecucion: 
+    # -O-J-O- Ejecución 
     # 3
     # 5
     # 7
@@ -297,15 +297,15 @@ lst1=[i for i in range(1, 11)]
 lst2=[j for j in range(1, 11)]
 lst3=[]
 total = 0
-print ("lst1: " + str(lst1)) # O-J-O Ejecucion: lst1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print ("lst2: " + str(lst2)) # O-J-O Ejecucion: lst2: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print ("lst1: " + str(lst1)) # -O-J-O- Ejecución lst1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print ("lst2: " + str(lst2)) # -O-J-O- Ejecución lst2: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for x in lst1:
   for y in lst2:
     z = (x + y)
     lst3.append(z)
     total += z
-print (lst3) # O-J-O Ejecucion: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-print ("total: " + str(total)) # O-J-O Ejecucion: total: 1100
+print (lst3) # -O-J-O- Ejecución [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+print ("total: " + str(total)) # -O-J-O- Ejecución total: 1100
 
 
 # Python code to demonstrate range() vs xrange() - no funciona en Python 3.7.4
@@ -314,8 +314,11 @@ print ("total: " + str(total)) # O-J-O Ejecucion: total: 1100
 # initializing a with range() 
 a = range(1,10000) 
   
-# initializing a with xrange() 
-x = xrange(1,10000) 
+# initializing a with range() 
+x = range(1,10000) 
+
+# # initializing a with xrange() 
+# x = xrange(1,10000) 
 
 # testing the type of a 
 print ("The return type of range() is : ") 
@@ -438,7 +441,7 @@ for i in numbers:
     else:
       continue
 
-# O-J-O Ejecucion:
+# -O-J-O- Ejecución
 # i: 402	     
 # i: 984	     
 # i: 360	     
@@ -473,7 +476,7 @@ for number in numbers:
 
     print(number)
 
-# O-J-O Ejecucion:
+# -O-J-O- Ejecución
 # 402
 # 984
 # 360
@@ -496,4 +499,25 @@ for number in numbers:
 # 162
 # 758
 # 918
+
+print("--------------------")
+
+foods = ['apples', 'bread', 'cheese', 'milk', 'bananas', 'graves']
+
+for food in foods:
+    if food == 'cheese':
+        print(f"you have to buy this product: {food}")
+    print(food)
+
+# -O-J-O- Ejecución
+
+# apples
+# bread
+# you have to buy this product: cheese
+# cheese
+# milk
+# bananas
+# graves
+
+print("--------------------")
 

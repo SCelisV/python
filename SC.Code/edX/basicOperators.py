@@ -3,9 +3,10 @@
 # Arithmetic Operators
 # Just as any other programming languages, the addition, subtraction, multiplication, and division operators can be used with numbers.
 
-# the order of execution in this case is: 1 + (2 * 3) / 4.0
+# precedencia: PEMDAS => Parenthesis, Exponentiation, Multiplication and Division, Addition and Subtractio the order of execution in this case is: 1 + (2 * 3) / 4.0
 number = 1 + 2 * 3 / 4.0
 print(number)
+print (type(number))
 
 # Try to predict what the answer will be. 
 # Does python follow order of operations?
@@ -13,16 +14,21 @@ print(number)
 # Another operator available is the modulo (%) operator, which returns the integer remainder of the division. 
 # dividend % divisor = remainder.
 
-# O-J-O- Ejecucion remainder=2
+# -O-J-O- Ejecución remainder=2
 remainder = 11 % 3
-print(remainder)
+print(f"remaninder: {remainder}")
+
+remainder02 = 11//3
+print(f"remaninder02: {remainder02}")
+
+
 
 # Using two multiplication symbols makes a power relationship.
 squared = 7 ** 2
 cubed = 2 ** 3
-# O-J-O- Ejecucion raiz cuadrada - squared=49
+# -O-J-O- Ejecución raiz cuadrada - squared=49
 print(squared)
-# O-J-O- Ejecucion raiz cubica - cubed=8
+# -O-J-O- Ejecución raiz cubica - cubed=8
 print(cubed)
 
 # Using Operators with Strings
@@ -33,21 +39,21 @@ print(helloworld)
 
 # Python also supports multiplying strings to form a string with a repeating sequence:
 
-# O-J-O- Ejecucion hellohellohellohellohellohellohellohellohellohello
+# -O-J-O- Ejecución hellohellohellohellohellohellohellohellohellohello
 lotsofhellos = "hello" * 10
 print(lotsofhellos)
 
 # Using Operators with Lists
 # Lists can be joined with the addition operators:
 
-# O-J-O- Ejecucion [1, 3, 5, 7, 2, 4, 6, 8]
+# -O-J-O- Ejecución [1, 3, 5, 7, 2, 4, 6, 8]
 even_numbers = [2,4,6,8]
 odd_numbers = [1,3,5,7]
 all_numbers = odd_numbers + even_numbers
 print(all_numbers)
 
 # Just as in strings, Python supports forming new lists with a repeating sequence using the multiplication operator:
-# O-J-O- Ejecucion [1, 2, 3, 1, 2, 3, 1, 2, 3]
+# -O-J-O- Ejecución [1, 2, 3, 1, 2, 3, 1, 2, 3]
 print([1,2,3] * 3)
 
 
@@ -149,14 +155,14 @@ if name in ["John", "Rick"]:
 
 x = [1,2,3]
 y = [1,2,3]
-print(x == y) # O-J-O- Ejecucion: True
-print(x is y) # O-J-O- Ejecucion: False
+print(x == y) # -O-J-O- Ejecución: True
+print(x is y) # -O-J-O- Ejecución: False
 
 # The "not" operator
 # Using "not" before a boolean expression inverts it:
 
-print(not False) # O-J-O- Ejecucion:  True
-print((not False) == (False)) # O-J-O- Ejecucion:  False
+print(not False) # -O-J-O- Ejecución:  True
+print((not False) == (False)) # -O-J-O- Ejecución:  False
 
 ###############
 #  Excercise  #
@@ -171,21 +177,21 @@ first_array = [1,2,3]
 second_array = [1,2]
 
 if number > 15:
-    print("1") # O-J-O- Ejecucion: 1
+    print("1") # -O-J-O- Ejecución: 1
 
 if first_array:
-    print("2") # O-J-O- Ejecucion: 2
+    print("2") # -O-J-O- Ejecución: 2
 
 if len(second_array) == 2:
-    print("3") # O-J-O- Ejecucion: 3
+    print("3") # -O-J-O- Ejecución: 3
 
 if len(first_array) + len(second_array) == 5:
-    print("4") # O-J-O- Ejecucion: 4
+    print("4") # -O-J-O- Ejecución: 4
 
 if first_array and first_array[0] == 1:
-    print("5") # O-J-O- Ejecucion: 5
+    print("5") # -O-J-O- Ejecución: 5
 
 if not second_number:
-    print("6") # O-J-O- Ejecucion: 6
+    print("6") # -O-J-O- Ejecución: 6
 
     

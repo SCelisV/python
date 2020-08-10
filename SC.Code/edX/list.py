@@ -7,11 +7,11 @@ mylist = []
 mylist.append(1)
 mylist.append(2)
 mylist.append(3)
-print(mylist[0]) # O-J-O- Ejecucion 1
-print(mylist[1]) # O-J-O- Ejecucion 2
-print(mylist[2]) # O-J-O- Ejecucion 3
+print(mylist[0]) #  -O-J-O- Ejecución 1
+print(mylist[1]) #  -O-J-O- Ejecución 2
+print(mylist[2]) #  -O-J-O- Ejecución 3
 
-# O-J-O- Ejecucion out 1,2,3
+#  -O-J-O- Ejecución out 1,2,3
 for x in mylist:
     print(x)
 
@@ -21,10 +21,10 @@ mylist = []
 mylist.append("a")
 mylist.append("b")
 mylist.append("c")
-print(mylist[0]) # O-J-O- Ejecucion a
-print(mylist[1]) # O-J-O- Ejecucion b
-print(mylist[2]) # O-J-O- Ejecucion c
-# O-J-O- Ejecucion out a,b,c
+print(mylist[0]) #  -O-J-O- Ejecución a
+print(mylist[1]) #  -O-J-O- Ejecución b
+print(mylist[2]) #  -O-J-O- Ejecución c
+#  -O-J-O- Ejecución out a,b,c
 x = 0
 for x in mylist:
     print(x)
@@ -35,30 +35,29 @@ mylist = []
 mylist.append(1)
 mylist.append(2)
 mylist.append(3)
-print(mylist[0]) # O-J-O- Ejecucion 1
-print(mylist[1]) # O-J-O- Ejecucion 2
-print(mylist[2]) # O-J-O- Ejecucion 3
+print(mylist[0]) #  -O-J-O- Ejecución 1
+print(mylist[1]) #  -O-J-O- Ejecución 2
+print(mylist[2]) #  -O-J-O- Ejecución 3
 
-# O-J-O- Ejecucion out 1,2,3
+#  -O-J-O- Ejecución out 1,2,3
 for x in mylist:
     print("x: ", x)
     
 print("--------------------")
 
-mylist = [1,2,3]
-print(mylist[10])
+# - O-J-O- Genera el siguiente error: - 
+# 
+# mylist = [1,2,3]
+# print(mylist[10])
 
 # Accessing an index which does not exist generates an exception (an error).
-
-# - O-J-O- Genera el siguiente error: - 
 
 # Traceback (most recent call last):
 #   File "<stdin>", line 2, in <module>
 #     print(mylist[10])
 # IndexError: list index out of range
 
-# - O-J-O- 
-
+# - O-J-O- Genera el siguiente error: - 
 
 print("--------------------")
 print ("second list")
@@ -73,7 +72,7 @@ print (names)
 print("The second name on the names list is %s" % second_name)
 
 
-# O-J-O- Ejecucion out:
+#  -O-J-O- Ejecución out:
 # [1, 2, 3, 4, 5]
 # ['a', 'b', 'c', 'd', 'e']
 # ['John', 'Eric', 'Jessica']
@@ -86,7 +85,7 @@ odd_numbers = [1,3,5,7]
 all_numbers = odd_numbers + even_numbers
 print(all_numbers)
 
-# O-J-O- Ejecucion out
+#  -O-J-O- Ejecución out
 # three list
 # [1, 3, 5, 7, 2, 4, 6, 8]
 
@@ -103,7 +102,7 @@ print("x_list contains %d objects" % len(x_list))
 print("y_list contains %d objects" % len(y_list))
 print("big_list contains %d objects" % len(big_list))
 
-# O-J-O- Ejecucion out
+#  -O-J-O- Ejecución out
 # x_list contains 10 objects
 # y_list contains 10 objects
 # big_list contains 20 objects
@@ -141,8 +140,34 @@ numbers.append(3)
 strings.append("hello")
 strings.append("world")
 
+
 # this code should write out the filled arrays and the second name in the names list (Eric).
 print(numbers)
 print(strings)
 print("The second name on the names list is %s" % second_name)
 
+print("--------------------")
+
+# listas creadas a partir de un rango: range.py => ver este fichero de ejemplos
+
+# range (n...., n-1)
+lista_00 = list(range (1,10))
+print(f"este ćodigo: list(range (1,10)) crea una lista a partir usando la función range(rango): {lista_00}, comprobamos su tipo: {type(lista_00)}")
+
+lista_00 = list(range (1,11))
+print(f"este ćodigo: list(range (1,11)) crea una lista a partir usando la función range(rango): {lista_00}, comprobamos su tipo: {type(lista_00)}")
+
+# métodos de una lista
+# print(dir(lista_00))
+# ['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__sizeof__', '__str__', '__subclasshook__', 'append', 'clear', 'copy', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+
+print(f"con este código: len(lista_00), podemos saber cuantos elementos hay en el elemento lista_00: {len(lista_00)}")
+print(f"con este código: len(lista_00), podemos saber cuantos elementos hay en el elemento lista_00: {len(lista_00)}")
+
+print("--------------------")
+
+
+
+
+
+print("--------------------")

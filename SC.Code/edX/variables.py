@@ -111,6 +111,36 @@ print(f"nombre: {name}, apellido: {apell}" )
 # este print va después de la definición de las variables
 # nombre: SCelis, apellido: None
 
+x, book = 100, "I Robot"
+print(f"x: {x}, book: {book}")
+
+#  -O-J-O- Ejecución
+# x: 100, book: I Robot
+
+# Conventions
+
+book_name = "I Robot" #Snake Case
+bookName = "Digital fortress" #Camel Case
+BookName = "El juego de EllioT" #Pascal Case
+
+print("Snake Case: book_name")
+print("Camel Case: bookName")
+print("Pascal Case: BookName")
+
+#  -O-J-O- Ejecución
+# Snake Case: book_name
+# Camel Case: bookName
+# Pascal Case: BookName
+
+# CONSTANTES - CONS
+PI = 3.1416
+MY_NAME = "Sonia Celis"
+print(PI, MY_NAME)
+#  -O-J-O- Ejecución
+# 3.1416 Sonia Celis
+
+# ---------------------------------------
+
 # Mixing operators between numbers and strings is not supported:
 # This will not work!
 one = 1
@@ -122,14 +152,12 @@ print(one + two + hello)
 #  -O-J-O- Ejecución Genera el siguiente error: - 
 
 # Traceback (most recent call last):
-#   File "variables.py", line 119, in <module>
+#   File "variables.py", line 150, in <module>
 #     print(one + two + hello)
 # TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
-
 #############
 #Here are some basic argument specifiers you should know:
-
 # %s - String (or any object with a string representation, like numbers)
 
 # %d - Integers

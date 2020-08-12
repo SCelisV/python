@@ -243,3 +243,55 @@ print("--------------------")
 #     print(line)
 # NameError: name 'line' is not defined
 print("--------------------")
+
+def recurse():
+    recurse()
+
+# recurse()
+
+# - O-J-O- Genera el siguiente error: - 
+# Traceback (most recent call last):
+#   File "/Users/soniacelis/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/functions.py", line 250, in <module>
+#     recurse()
+#   File "/Users/soniacelis/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/functions.py", line 248, in recurse
+#     recurse()
+#   File "/Users/soniacelis/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/functions.py", line 248, in recurse
+#     recurse()
+#   File "/Users/soniacelis/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/functions.py", line 248, in recurse
+#     recurse()
+#   [Previous line repeated 996 more times]
+# RecursionError: maximum recursion depth exceeded
+
+print("--------------------")
+
+# returns the area of a circle with the given radius
+import math
+def area(radius):
+    return math.pi * radius**2
+
+print("--------------------")
+
+# to have multiple return statements, one in each branch of a conditional - debugging easier
+# código muerto (lo que está después del return)  
+
+def absoluteValue(x):
+    if x < 0:
+        return -x
+    else:
+        return x
+
+print("--------------------")
+
+# return la distancia entre dos puntos
+
+def distance(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    print (f"dx is: {dx}")
+    print (f"dy is: {dy}")
+    dsquared = dx**2 + dy**2
+    print(f"dsquared is: {dsquared}")
+    result = math.sqrt(dsquared)
+    return result
+
+print("--------------------")

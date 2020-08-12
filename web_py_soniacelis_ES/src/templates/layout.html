@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.soniacelis.es</title>
+    <!-- BOOTSTRAP 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+</head>
+
+<body>
+    <!-- BOOTSTRAP 4 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">SCWebApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{url_for('experience')}}">experience</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{url_for('academic')}}">academic</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{url_for('portafolio')}}">portafolio</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="{{url_for('contact')}}">contact</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">notes</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">links</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">curriculum</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">photos</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">EllioT</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+</body>
+
+</html>

@@ -21,11 +21,11 @@ def academic():
 
 @app.route('/portafolio')
 def portafolio():
-    return "Portafolio Page"
+    return render_template('portafolio.html')
 
 @app.route('/contact')
 def contact():
-    return "Contact Page"
+    return render_template('contact.html')
     
 @app.route('/notes')
 def notes():
@@ -43,10 +43,18 @@ def curriculum():
 def photos():
     return "Photos Page"
 
+@app.route('/dibus')
+def dibus():
+    return "Art Page"
+
 @app.route('/EllioT')
-def elliot():
+def EllioT():
     return "EllioT Page"
 
+@app.route('/anuncios')
+def anuncios():
+    return render_template('anuncios.html')
+    
 # comprobar si este es el fichero ppal que ejecuta la aplicación ó un modulo
 if  __name__ == '__main__':
     # Ejecuta la aplicación
@@ -54,5 +62,3 @@ if  __name__ == '__main__':
     # ref:deployment for WSGI server
     # app.run()
     app.run(debug=True)
-
-

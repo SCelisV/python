@@ -1,25 +1,112 @@
-# ML.py
+# MachineLearning.py
+
+# Modelos predictivos con Machine Learning - MPML - SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/jupyter/MPML
+""" Analizar datos - O-J-O-
+
+    Revisar la descripción de los datos, utilizando el método describe( ).
+    Utilizar la media y la mediana para determinar la tendencia central.
+    Tener especial atención a los percentiles para poder identificar los rangos de los datos.
+    Usar una matriz de correlación para identificar las relaciones fuertes en los datos.
+    Hacer visualizaciones para mejorar tu entendimiento de los datos (Box plot, Density plot, Scatter plot).
+    Limpiar tus datos (NA, outliers). """
+
+# https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html - include in anaconda
+
+
+"""     
+    Predecir una clase, tenemos un problema de clasificación.
+Applications: Spam detection, image recognition.
+Algorithms: SVM, nearest neighbors, random forest, 
+
+    Predecir un valor numérico, tenemos un problema de regresión.
+Applications: Drug response, Stock prices.
+Algorithms: SVR, nearest neighbors, random forest, 
+
+    Separar los datos en diferentes grupos, tenemos un problema de agrupamiento.
+Applications: Customer segmentation, Grouping experiment outcomes
+Algorithms: k-Means, spectral clustering, mean-shift,
+
+    Si queremos simplificar la información, tenemos un problema de reducción de dimensiones (reducir la dimensión del problema)
+ """
 
 # Machine learning => automatiza la construcción de un módelo analítico, uso de algoritmos que aprende de los datos.
 # Algoritmos: Supervisado, NO Supervisado, de Refuerzo
 
-# Supervisado => necesita datos previamente etiquetados(lo que es correcto y lo que no es correcto) para aprender a realizar el trabajo. En base a esto, el algoritmo aprenderá a resolver problemas futuros similares.
+
+# 1. -> Regresión líneal - Supervisado - Aproximación que modela una relación entre una variable escalar dependiente ("Y") y una o más variables explicativas ("X")
+# Dibujará una recta que nos indicará la tendencia del conjunto de datos, y nos ayudará a predecir en función de un valor X un valor Y. Ecuación matemática que representa una línea recta. "Intentará pasar por la mayor cantidad de datos posibles"
+
+# 2. -> Regresión polinomial - Es parecida a la regresión líneal sólo que extiende a la función a un polinomio flexible que se puede curvar si es necesario.. etc. 
+# Representa una curva, y graficará el polinomio que más se parezca a las características de los datos
+
+# 3. -> Árboles de decisión :  https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
+# CART - Árboles de clasificación y regresión 
+# pretenden explicar o predecir una variable a partir de un conjunto de variables predictoras utilizando un conjunto de reglas sencillas. 
+# A medida que podamos identificar estas reglas sencillas podremos generar clasificaciones más adecuadas que representen de manera más precisa el conjunto de datos
+
+# Redes neuronales => recibir, procesar y transmitir información
+
+# Perceptrón => neurona artificial, la unión de varios crean una red neuronal artificial. <=> simulan a las humanas y son capaces de transmitir señales entre ellas e ir modificando las entradas de las neuronas para obtener valores de salida
+# Aprenden a partir de la experiencia para predecir
+
+# Se compone de:
+# - Canales/Señales de entrada - Dentritas
+# - Función de activación - Soma o núcleo - (unión sumadora)
+# - Canal de salida y Axón.
+
+"""  n
+ Σ WiXi + b
+i=0  """
+
+# 4. -> Máquinas de Soporte Vectorial -> SVM -> Buscan encontrar un hiperplano que separe los puntos compuestos en una categoria de otra. - Delimitar con notoriedad cada una de las características de los diferentes conjuntos.
+# Las máquinas de soporte vectorial buscan encontrar un hiperplano que separe de forma óptima a los puntos que componen diferentes categorías unos de los otros. Este tipo de algoritmo suele utilizarse para predecir a que categoría pertencerá un nuevo punto del que no se tenía información con anterioridad.
+
+# Tipos de aprendizaje
+""" Aprendizaje supervisado => proporcionamos datos de test(conocidos)
+Los algoritmos de aprendizaje supervisado son aquellos que trabajan primeramente aprendiendo con un conjunto de datos de entrenamiento "etiquetados", los cuales recibe para posteriormente trabajar con ellos, intentando asignarles correctamente una etiqueta que coincida con la que previamente tenía. """
+
+""" El comportamiento del algoritmo se corrige en medida a cuántas veces fallo al momento de etiquetar los datos de prueba y posteriormente modifica su comportamiento para las próximas ejecuciones. Después de terminar de entrenar con los datos etiquetados, se somete al algoritmo a trabajar con un conjunto de datos nuevos para los que no se conoce la etiqueta. 
+ """
+# Supervisado => necesita datos previamente etiquetados(lo que es correcto y lo que no es correcto) para aprender a realizar el trabajo. En base a esto, el algoritmo aprenderá a resolver problemas futuros similares.a
+
 # 1. -> Regresión líneal,
-# 2. -> Regresión logística
+# 2. -> Regresión polinomial,
 # 3. -> Máquinas de Soporte Vectorial -> SVM
 
-# NO Supervisado => necesita indicaciones previas, No necesita datos previamente etiquetados. Aprende a comprender y a analizar la información. Práctica sobre los datos que tiene.
+
+""" Aprendizaje no supervisado
+
+Los algoritmos de aprendizaje no supervisado no cuentan con un conjunto de datos "etiquetados" con los cuales puede entrenar y buscan intentar encontrar algún tipo de organización o patrón en los datos de entrada que recibe. Estos algoritmos suelen tener un comportamiento "exploratorio", y en el caso de enfrentar un problema de agrupamiento, estos algoritmos intentan agrupar a los datos por medio de características similares pero no sin saber previamente que tipos de datos va a agrupar. 
+ """
+# NO Supervisado => necesita indicaciones previas, No necesita datos previamente etiquetados. Aprende a comprender y a analizar la información. Práctica sobre los datos que tiene. 
+# Busca relaciones entre los datos - para identificarlos - pero no los podrá "etiquetar"
+
 # 1. -> K vecinos más cercanos - KNN
 # 2. -> Árboles de decisión :  https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
+# CART - Árboles de clasificación y regresión 
+# pretenden explicar o predecir una variable a partir de un conjunto de variables predictoras utilizando un conjunto de reglas sencillas. 
 # 3. -> Random Forest -> Bosques Aleatorios
 # 4. -> k-medias -> no supervisado, usado para clusterización
 
-# de Refuerzo => aprende por su cuenta, en base a conocimientos introducidos previamente, aprende en función del éxito ó fracaso.
+""" 
+Aprendizaje reforzado
 
-# 1. -> Regresión líneal - Supervisado - Aproximación que modela una relación entre una variable escalar dependiente ("Y") y una o más variables explicativas ("X")
-# Dibujará una recta que nos indicará la tendencia del conjunto de datos, y nos ayudará a predecir en función de un valor X un valor Y.
+Las técnicas de aprendizaje por refuerzo se basan en modificar la respuesta del algoritmo utilizando un proceso de retroalimentación basado en un conjunto de recompensas y castigos que le permiten al algoritmo identificar cuando alguna de las acciones que realizo previamente obtuvo buenos resultados o fue un comportamiento que deberá evitar en futuras ejecuciones. Estas técnicas de aprendizaje intentan simular el proceso de aprendizaje humano, simulando la sensación de que el algoritmo aprende obteniendo información de cómo se modifica el mundo que lo rodea en respuesta de las acciones que produce.  """
 
-# http://archive.ics.uci.edu/ml/datasets/Student+Performance => Student Performance => hadoop@ubuntu-hokkaido-3568:~/R/Data/workSpace/MasterR$
+# De Refuerzo => aprende por su cuenta, en base a conocimientos introducidos previamente, aprende en función del éxito ó fracaso.
+# La acción le puede generar una recompensa y la repites.. si es un castigo lo evitas 
+
+
+# scikit-learn.org/ -- Machine Learning en Python 
+# https://scikit-learn.org/stable
+""" 
+https://scikit-learn.org/stable/modules/classes.html#module-sklearn.datasets
+
+https://scikit-learn.org/stable/datasets/index.html#boston-dataset
+ """
+
+
+
 
 
 # limpieza de datos
@@ -104,7 +191,6 @@
 
 # One Way
 # creamos una función que reemplace los valores nulls del dataSet por 0, le pasamos la columna edad, y la columna clase
-datos.19$Age
 nulos <- function(Age, Pclass) {
     newAge <- Age
     for(i in 1:length(Age)){
@@ -173,7 +259,6 @@ nulos <- function(x, y) {
 # 2. -> Árboles de decisión :  https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
 # Sirven Representar y Categorizar una serie de condiciones que ocurren de forma sucesiva, para la resolución de un problema.
 
-
 # 3. -> Random Forest -> Bosques Aleatorios - Algoritmo de clasificación
 # combinación entre arboles de decisión en la que cada arbol selecciona una clase y luego se combinan las decisiones de cada uno para seleccionar la mejor opción.
 # Maneja cientos de variables de entrada, eficiente en DB grandes
@@ -189,16 +274,4 @@ nulos <- function(x, y) {
 # Partición de un conjunto de "n" observaciones en "k" grupos, en el que cada observación pertenece al grupo cuyo valor medio es más cercano. - mineria de datos
 
 
-
-# Redes neuronales => recibir, procesar y transmitir información
-
-# Perceptrón => neurona artificial, la unión de varios crean una red neuronal artificial.
-# Se compone de:
-# - Canales/Señales de entrada - Dentritas
-# - Función de activación - Soma o núcleo - (unión sumadora)
-# - Canal de salida y Axón.
-
- n
- Σ WiXi + b
-i=0 
 

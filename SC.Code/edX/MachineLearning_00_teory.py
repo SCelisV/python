@@ -1,19 +1,32 @@
-# MachineLearning.py
+# MachineLearning_00_teory.py
+# MachineLearning_00_code.py
+""" 
+# Código del cálculos de los módelos:
+    - regresión ĺineal, 
+    - regresión múltiple, 
+    - regresión polinomial, 
+    - Máquinas de Soporte Vectorial - Support Vector Regression
+    - Árboles de decisión
+    
+# BostonDataSet
+# =============================================================================
+""" 
 
-# Modelos predictivos con Machine Learning - MPML - SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/jupyter/MPML
+# Módelos predictivos con Machine Learning - MPML - SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/jupyter/MPML
 """ Analizar datos - O-J-O-
 
-    Revisar la descripción de los datos, utilizando el método describe( ).
+    Revisar la descripción de los datos, utilizando el método describe() like summary on RStudio.
     Utilizar la media y la mediana para determinar la tendencia central.
     Tener especial atención a los percentiles para poder identificar los rangos de los datos.
     Usar una matriz de correlación para identificar las relaciones fuertes en los datos.
     Hacer visualizaciones para mejorar tu entendimiento de los datos (Box plot, Density plot, Scatter plot).
     Limpiar tus datos (NA, outliers). """
 
-# https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html - include in anaconda
+# https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html - include in anaconda3
 
 
 """     
+
     Predecir una clase, tenemos un problema de clasificación.
 Applications: Spam detection, image recognition.
 Algorithms: SVM, nearest neighbors, random forest, 
@@ -27,25 +40,102 @@ Applications: Customer segmentation, Grouping experiment outcomes
 Algorithms: k-Means, spectral clustering, mean-shift,
 
     Si queremos simplificar la información, tenemos un problema de reducción de dimensiones (reducir la dimensión del problema)
- """
+ 
+"""
 
 # Machine learning => automatiza la construcción de un módelo analítico, uso de algoritmos que aprende de los datos.
-# Algoritmos: Supervisado, NO Supervisado, de Refuerzo
 
+# Algoritmos => Supervisado, NO Supervisado, De Refuerzo
 
-# 1. -> Regresión líneal - Supervisado - Aproximación que modela una relación entre una variable escalar dependiente ("Y") y una o más variables explicativas ("X")
-# Dibujará una recta que nos indicará la tendencia del conjunto de datos, y nos ayudará a predecir en función de un valor X un valor Y. Ecuación matemática que representa una línea recta. "Intentará pasar por la mayor cantidad de datos posibles"
+# =============================================================================
+"""
+# 1. -> Regresión líneal - Supervisado - Aproximación que modela una relación entre una variable escalar dependiente ("Y") y una o más variables explicativas/independientes ("X")
+"""
+# Dibujará una recta y=mx+b => que nos indicará la tendencia del conjunto de datos, y nos ayudará a predecir en función de un valor X un valor Y. 
+# Ecuación matemática que representa una línea recta. 
+# Intentará pasar por la mayor cantidad de datos posibles.
+# Es la representación mas adecuada de la distribución de los datos en un diagrama de dispersión
+# y => coordenada Y
+# m => pendiente
+# x => coordenada X
+# b => Ordenada en el Origen, intercepción, el punto Y donde la línea cruza el eje Y, relación X,Y
 
-# 2. -> Regresión polinomial - Es parecida a la regresión líneal sólo que extiende a la función a un polinomio flexible que se puede curvar si es necesario.. etc. 
-# Representa una curva, y graficará el polinomio que más se parezca a las características de los datos
+# Procedimiento manual:
+# El procedimiento para generar la regresión líneal utilizando la técnica de ajuste de mínimos cuadrados:
+    
+# - calcular la media aritmética y la varianza tanto de los valores de _x_ como los valores de _y_. 
 
-# 3. -> Árboles de decisión :  https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
-# CART - Árboles de clasificación y regresión 
+# Por lo que construiremos una tabla donde calculamos los valores cuadrados de ambas variables y calculamos la sumatoria de cada columna.
+# formulas: img/RegLin_Formulas.png
+
+# sumatoria x =>
+# sumatoria y =>
+# sumatoria x*y => 
+# sumatoria x² =>
+# sumatoria y² =>
+#
+# y=-0.8926x+31.9160 cambiando el valor de x y pintandola en el plano obtenemos la recta de puntos.
+
+# al unir las graficas de la recta de puntos y los datos originales, 
+# se puede observar que tienen comportamientos similares
+# por lo tanto por medio de la ecuación podemos predecir el comportamiento de otros datos.
+
+"""
+# 2. -> Regresión Múltiple - Supervisado - Utilizamos regresión múltiple cuando estudiamos la posible relación entre varias variables independientes (predictoras o explicativas) y otra variable dependiente (criterio, explicada, respuesta). ... Las modelos de regresión nos informan de la presencia de relaciones, pero no del mecanismo causal.
+"""
+# Multiples variables independientes en el mismo módelo.
+# Importante saber elegir las variables independientes
+# =============================================================================
+"""
+# 3. -> Regresión polinomial - Supervisado - 
+"""
+# Es parecida a la regresión líneal sólo que extiende la función a un polinomio flexible que se puede curvar si es necesario.. etc. 
+# Representa una curva, y graficará el polinomio que más se parezca a las características de los datos.
+# Este modelo añade curvatura al elevar la variable _x_ a diferentes potencias. De esta manera, se pueden conseguir diferentes funciones que representan y se ajustan más a la distribución de los datos.
+# El procedimiento para generar la regresión cuadrática utilizando la técnica de ajuste de mínimos cuadrados inicia construyendo un sistema de ecuaciones que son producto de analizar la suma de los cuadrados de los residuos 
+# Parabola = Polinomio de grado 2 = X² = potencia más grande - Derivadas parciales - 
+# 
+# =============================================================================
+"""
+# 4. -> Máquinas de Soporte Vectorial -> SVM -> SVR - Supervisado
+"""
+# Buscan encontrar un hiperplano que separe los puntos compuestos en una categoria de otra. 
+# Delimitar con notoriedad cada una de las características de los diferentes conjuntos.
+# Las máquinas de soporte vectorial buscan encontrar un hiperplano que separe de forma óptima a los puntos que componen diferentes categorías unos de los otros. 
+# Este tipo de algoritmo suele utilizarse para predecir a que categoría pertencerá un nuevo punto del que no se tenía información con anterioridad.
+# SVR -> Regresión de Soporte Vectorial - Supervisado - SVR
+# Support Vector Regression es un algoritmo de regresión basado en las máquinas de soporte vectorial utilizados para clasificar elementos de diferentes conjuntos. 
+# En la siguiente sección se explicara cómo funciona el algoritmo SVR con datos lineales, 
+# pero es importante saber que este algoritmo también funciona para datos no lineales.
+
+# Objetivos: Máximizar el margen(las bandas de soporte que rodean a la línea de regresión) para abarcar la mayoría de los puntos de nuestro módelo y Minimizar el error
+
+#     https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html#sklearn.svm.SVR
+#     https://scikit-learn.org/stable/modules/svm.html#tips-on-practical-use
+# 
+# =============================================================================
+"""
+# 5. -> Árboles de decisión : NO Supervisado
+"""
+# https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
+# CART - Árboles de clasificación (asigna una etiqueta) y regresión (asigna una valor) 
 # pretenden explicar o predecir una variable a partir de un conjunto de variables predictoras utilizando un conjunto de reglas sencillas. 
-# A medida que podamos identificar estas reglas sencillas podremos generar clasificaciones más adecuadas que representen de manera más precisa el conjunto de datos
+# Se hacen diferentes intervalos y a cada uno se asigna un valor de tal forma se podrá identificar cada punto a que rango pertenece
+# El procedimiento para generar un árbol de regresión empieza partiendo la totalidad del intervalo de los datos de la variable independiente x en diferentes intervalos pequeños. En nuestro ejemplo aprovecharemos que es posible identificar que los datos parecen estar agrupados en los siguientes cuatro intervalos:
+    
+# =============================================================================
+#     𝐼𝑛𝑡𝑒𝑟𝑣𝑎𝑙𝑜1: 0 ≤ 𝑥 < 0.25 => 𝑦=10
+#     𝐼𝑛𝑡𝑒𝑟𝑣𝑎𝑙𝑜2: 0.25 ≤ 𝑥 < 0.5 => 𝑦=15
+#     𝐼𝑛𝑡𝑒𝑟𝑣𝑎𝑙𝑜3: 0.5 ≤ 𝑥 < 0.75 => 𝑦=20
+#     𝐼𝑛𝑡𝑒𝑟𝑣𝑎𝑙𝑜4: 0.75 ≤ 𝑥 ≤ 1.0 => 𝑦=15
+#    
+#    Asignarle un valor numérico a una entrada x de la cuál no se conocía su valor de salida y previamente.
+# =============================================================================
 
-# Redes neuronales => recibir, procesar y transmitir información
 
+"""
+# 6. -> Redes neuronales => recibir, procesar y transmitir información
+"""
 # Perceptrón => neurona artificial, la unión de varios crean una red neuronal artificial. <=> simulan a las humanas y son capaces de transmitir señales entre ellas e ir modificando las entradas de las neuronas para obtener valores de salida
 # Aprenden a partir de la experiencia para predecir
 
@@ -58,10 +148,9 @@ Algorithms: k-Means, spectral clustering, mean-shift,
  Σ WiXi + b
 i=0  """
 
-# 4. -> Máquinas de Soporte Vectorial -> SVM -> Buscan encontrar un hiperplano que separe los puntos compuestos en una categoria de otra. - Delimitar con notoriedad cada una de las características de los diferentes conjuntos.
-# Las máquinas de soporte vectorial buscan encontrar un hiperplano que separe de forma óptima a los puntos que componen diferentes categorías unos de los otros. Este tipo de algoritmo suele utilizarse para predecir a que categoría pertencerá un nuevo punto del que no se tenía información con anterioridad.
 
-# Tipos de aprendizaje
+# Tipos de aprendizaje => Algoritmos => Supervisado, NO Supervisado, De Refuerzo
+
 """ Aprendizaje supervisado => proporcionamos datos de test(conocidos)
 Los algoritmos de aprendizaje supervisado son aquellos que trabajan primeramente aprendiendo con un conjunto de datos de entrenamiento "etiquetados", los cuales recibe para posteriormente trabajar con ellos, intentando asignarles correctamente una etiqueta que coincida con la que previamente tenía. """
 
@@ -69,26 +158,27 @@ Los algoritmos de aprendizaje supervisado son aquellos que trabajan primeramente
  """
 # Supervisado => necesita datos previamente etiquetados(lo que es correcto y lo que no es correcto) para aprender a realizar el trabajo. En base a esto, el algoritmo aprenderá a resolver problemas futuros similares.a
 
-# 1. -> Regresión líneal,
-# 2. -> Regresión polinomial,
-# 3. -> Máquinas de Soporte Vectorial -> SVM
-
+# -> Regresión líneal,
+# -> Regresión polinomial,
+# -> Máquinas de Soporte Vectorial -> SVM - SVR
 
 """ Aprendizaje no supervisado
 
 Los algoritmos de aprendizaje no supervisado no cuentan con un conjunto de datos "etiquetados" con los cuales puede entrenar y buscan intentar encontrar algún tipo de organización o patrón en los datos de entrada que recibe. Estos algoritmos suelen tener un comportamiento "exploratorio", y en el caso de enfrentar un problema de agrupamiento, estos algoritmos intentan agrupar a los datos por medio de características similares pero no sin saber previamente que tipos de datos va a agrupar. 
  """
+ 
 # NO Supervisado => necesita indicaciones previas, No necesita datos previamente etiquetados. Aprende a comprender y a analizar la información. Práctica sobre los datos que tiene. 
 # Busca relaciones entre los datos - para identificarlos - pero no los podrá "etiquetar"
 
-# 1. -> K vecinos más cercanos - KNN
-# 2. -> Árboles de decisión :  https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
-# CART - Árboles de clasificación y regresión 
+# -> K vecinos más cercanos - KNN
+# -> Árboles de decisión :  https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
+#   CART - Árboles de clasificación y regresión 
 # pretenden explicar o predecir una variable a partir de un conjunto de variables predictoras utilizando un conjunto de reglas sencillas. 
-# 3. -> Random Forest -> Bosques Aleatorios
-# 4. -> k-medias -> no supervisado, usado para clusterización
+# -> Random Forest -> Bosques Aleatorios
+# -> k-medias -> no supervisado, usado para clusterización
 
 """ 
+
 Aprendizaje reforzado
 
 Las técnicas de aprendizaje por refuerzo se basan en modificar la respuesta del algoritmo utilizando un proceso de retroalimentación basado en un conjunto de recompensas y castigos que le permiten al algoritmo identificar cuando alguna de las acciones que realizo previamente obtuvo buenos resultados o fue un comportamiento que deberá evitar en futuras ejecuciones. Estas técnicas de aprendizaje intentan simular el proceso de aprendizaje humano, simulando la sensación de que el algoritmo aprende obteniendo información de cómo se modifica el mundo que lo rodea en respuesta de las acciones que produce.  """
@@ -191,67 +281,73 @@ https://scikit-learn.org/stable/datasets/index.html#boston-dataset
 
 # One Way
 # creamos una función que reemplace los valores nulls del dataSet por 0, le pasamos la columna edad, y la columna clase
-nulos <- function(Age, Pclass) {
-    newAge <- Age
-    for(i in 1:length(Age)){
-        if( is.na(Age[i]) ) { # si es null
-            if(Pclass[i] == 1){
-                newAge[i] <- 33.00
-            } else if(Pclass[i] == 2){
-                newAge[i] <- 28.00
-            } else if(Pclass[i] == 3){
-                newAge[i] <- 18.00
-            }   
-        }        
-    }
-    return(newAge)
-}
+# =============================================================================
+# nulos <- function(Age, Pclass) {
+#     newAge <- Age
+#     for(i in 1:length(Age)){
+#         if( is.na(Age[i]) ) { # si es null
+#             if(Pclass[i] == 1){
+#                 newAge[i] <- 33.00
+#             } else if(Pclass[i] == 2){
+#                 newAge[i] <- 28.00
+#             } else if(Pclass[i] == 3){
+#                 newAge[i] <- 18.00
+#             }   
+#         }        
+#     }
+#     return(newAge)
+# }
+# =============================================================================
 
-# Funciones con varios argumentos y aplicar el resultado a una columna
-datos.19$Age <- nulos(datos.19$Age, datos.19$Pclass)
-
-
-# Two Way
-# creamos una función que reemplace los valores nulls del dataSet por 0, para poder calcular la media
-
-factor(datos.19$Pclass)
-
-nulos <- function(x) {
-    #print(x)
-    if( is.na(x) )
-        {return (0)}
-    else
-        {return (x)}
-}
-
+# =============================================================================
+# # Funciones con varios argumentos y aplicar el resultado a una columna
+# datos.19$Age <- nulos(datos.19$Age, datos.19$Pclass)
+# 
+# 
+# # Two Way
+# # creamos una función que reemplace los valores nulls del dataSet por 0, para poder calcular la media
+# 
+# factor(datos.19$Pclass)
+# 
+# nulos <- function(x) {
+#     #print(x)
+#     if( is.na(x) )
+#         {return (0)}
+#     else
+#         {return (x)}
+# }
+# 
+# =============================================================================
 
 
 # Three Way - Otra forma de codificar la función..
 # creamos una función que reciba la edad y la clase, reemplaza los valores nulls del dataSet por la media que corresponda con la clase:
-nulos <- function(x, y) {
-    # x => edad => datos.19$Age
-    # y => class => datos.19$Pclass
-    print(x)
-    print(y)
-    if (y == 1){
-        if( is.na(x) )
-            {return (33)}
-        else
-            {return (x)}
-    } else if (y == 2) {
-            if( is.na(x) )
-                {return (28)}
-            else
-                {return (x)}
-    } else if (y == 3) {
-            if( is.na(x) )
-                {return (18)}
-            else
-                {return (x)}
-    }
-    else {return (x)}
-}
-
+# =============================================================================
+# nulos <- function(x, y) {
+#     # x => edad => datos.19$Age
+#     # y => class => datos.19$Pclass
+#     print(x)
+#     print(y)
+#     if (y == 1){
+#         if( is.na(x) )
+#             {return (33)}
+#         else
+#             {return (x)}
+#     } else if (y == 2) {
+#             if( is.na(x) )
+#                 {return (28)}
+#             else
+#                 {return (x)}
+#     } else if (y == 3) {
+#             if( is.na(x) )
+#                 {return (18)}
+#             else
+#                 {return (x)}
+#     }
+#     else {return (x)}
+# }
+# 
+# =============================================================================
 
 
 # 1. -> K vecinos más cercanos - KNN => clasificación, estima la probabilidad de que un elemento "x" pertenezca a una clase "C", a partir de la información proporcionada.
@@ -265,7 +361,7 @@ nulos <- function(x, y) {
 
 # 3. -> Máquinas de Soporte Vectorial -> SVM -> Conjunto de algoritmos de aprendizaje supervisado para resolver problemas de clasificación y regresión.
 # Analizar datos y resolver patrones
-# Dado un conjunto de ejemplos de entrenamiento, podemos etiquetar las clases y entrenar una SVM para construir un modelo que prediga la clase de una nueva muestra.
+# Dado un conjunto de ejemplos de entrenamiento, podemos etiquetar las clases y entrenar una SVM para construir un módelo que prediga la clase de una nueva muestra.
 
 # Se separan las clases en dos espacios lo más amplio posible..
 
@@ -273,5 +369,6 @@ nulos <- function(x, y) {
 # 4. -> k-medias -> no supervisado, usado para clusterización
 # Partición de un conjunto de "n" observaciones en "k" grupos, en el que cada observación pertenece al grupo cuyo valor medio es más cercano. - mineria de datos
 
-
+# Cross Validation -O-J-O-
+# 
 

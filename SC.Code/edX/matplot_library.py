@@ -14,3 +14,19 @@ matplot_library.py
 https://matplotlib.org
 """
 
+# Le decimos a python que grafique en el mismo fichero
+# Mute inline plotting
+
+import matplotlib.pyplot as plt
+
+# Creamos un scatter plot con los datos de entrenamiento
+plt.scatter(X_train, y_train, color="blue")
+
+# Creamos un scatter plot con los datos de prueba
+plt.scatter(X_test, y_test, color="orange")
+
+# Graficamos el modelo
+plt.plot(X_plot, y_plot,"r--")
+
+
+

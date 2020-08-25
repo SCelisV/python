@@ -11,9 +11,28 @@ herramientas de análisis de datos
 para Python.
 pandas_library.py
 https://pandas.pydata.org
+https://www.datacamp.com/community/blog/python-pandas-cheat-sheet
 """
 
 # Trabajando con pandas -
+
+import pandas as pd
+
+# Asking For Help
+help(pd.Series.loc)
+
+# Pandas Data Structures
+
+# definir una serie
+s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
+
+# definir un dataFrame
+data = {'Country': ['Belgium', 'India', 'Brazil'],
+'Capital': ['Brussels', 'New Delhi', 'Brasília'],
+'Population': [11190846, 1303171035, 207847528]}
+
+df_Population = pd.DataFrame(data,
+columns=['Country', 'Capital', 'Population'])
 
 from sklearn.datasets import load_boston
 boston_dataSet = load_boston()
@@ -22,12 +41,10 @@ desc =  boston_dataSet.DESCR
 # print("Describe el dataframe: boston_dataSet => ", desc)
 print("Describe el dataframe: boston_dataSet => ", desc[148:1225])
 
-import pandas as pd
 df = pd.DataFrame(boston_dataSet.data,columns=[boston_dataSet.feature_names])
 
 # print(df)
 df.describe()
-
 
 # Crea la columna MEDV
 df['MEDV'] = boston_dataSet.target[df.index]
@@ -40,9 +57,11 @@ df.tail()
 # Display el type de datos de cada columna del dataframe
 df.dtypes
 
-# Display the index columns
+# Display the index columns - RangeIndex(start=0, stop=506, step=1)
 df.index
-df.columns
+
+# Display MultiIndex([(   'CRIM',),(     'ZN',), ... ,  (   'MEDV',)],)
+df.columns 
 
 # Display an array with head and tail
 df.to_numpy()
@@ -50,13 +69,14 @@ df.to_numpy()
 # Transposing your data:
 df_t = df.T
 
-# Sorting by an axis:
+# Sorting by an axis: npi
 df_sort = df.sort_index(axis=1, ascending=False)
 
 # -O-J-O- DON'T WORK - Sorting by name of field - df_sort_name = df.sort_values(by='AGE') 
 
-# Display - [9 rows x 14 columns]
+# Display - [9 rows x 14 columns] - filas 0 a 9 - [506 rows x 14 columns]
 df[1:10]
+df[0:506]
 
 # Display la fila 10 del dataSet
 df.loc[df.index[10]] 
@@ -117,4 +137,55 @@ df2[df2['dates'].isin(['2020-08-29 00:00:00', '2020-10-26 00:00:00'])]
 # total de filas y de columnas del dataSet
 df.shape
 
+# Display correlación de todas las variables vs la variable de respuesta/estudio
+df.corr()["MEDV"].sort_values()
 
+# I/O - files
+# Read and Write to CSV
+pd.read_csv('titanic.csv', header=None, nrows=5)
+df.to_csv('boston.csv')
+
+# Read and Write to Excel
+pd.read_excel('titanic.xlsx')
+df.to_excel('boston.xlsx', sheet_name='Boston')
+
+# Read multiple sheets/hojas from the same file/del mismo fichero
+xlsx = pd.ExcelFile('file.xlsx')
+df_excel = pd.read_excel(xlsx, 'Boston02')
+
+# Selection
+# Also see NumPy Arrays
+# Get one element
+s['b']
+# Get subset of a DataFrame
+df_Population[1:]
+
+# Selecting, Boolean Indexing & Setting
+# By Position
+
+# Select single value by row & column
+df.iloc[[0],[0]]
+#  -O-J-O- DON'T WORK - df.iat([0],[0])
+df.iat[0,0]
+
+# Select single value by row & column labels
+# By Label
+df.loc[[0], ['CRIM']]
+# -O-J-O- DON'T WORK - df.at([0], ['CRIM'])
+
+# By Label/Position
+# Select single row of subset of rows
+df.[2]
+
+# Display la columna n del dataSet
+# Select column by index -  - DataFrame - [506 rows x 1 columns]
+X = df.iloc[df.index[0:506], [12]]
+
+# select column by Label - DataFrame - [506 rows x 1 columns]
+X = df.loc[df.index[0:506], ['LSTAT']]
+
+
+# Array of float -  [[4.98][9.14]... [ 6.48][ 7.88]]
+X = boston_dataSet.data[df.index[0:506],[12]].reshape(-1,1)
+y = boston_dataSet.data[df.index[0:506],[13]].reshape(-1,1)
+print(y)

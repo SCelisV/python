@@ -1,0 +1,61 @@
+,user_id,date_served,marketing_channel,variant,converted,language_displayed,language_preferred,age_group,date_subscribed,date_canceled,subscribing_channel,is_retained
+,a100000029,1/1/18,House Ads,personalization,TRUE,English,English,0-18 years,1/1/18,NaN,House Ads,TRUE
+,a100000030,1/1/18,House Ads,personalization,TRUE,English,English,19-24 years,1/1/18,NaN,House Ads,TRUE
+,a100000031,1/1/18,House Ads,personalization,TRUE,English,English,24-30 years,1/1/18,NaN,House Ads,TRUE
+,a100000032,1/1/18,House Ads,personalization,TRUE,English,English,30-36 years,1/1/18,NaN,House Ads,TRUE
+,a100000033,1/1/18,House Ads,personalization,TRUE,English,English,36-45 years,1/1/18,NaN,House Ads,TRUE
+,a100000034,1/1/18,House Ads,personalization,TRUE,German,German,45-55 years,1/1/18,NaN,House Ads,TRUE
+,a100000035,1/1/18,House Ads,personalization,TRUE,English,English,55+ years,1/1/18,NaN,House Ads,TRUE
+,a100000036,1/1/18,House Ads,personalization,TRUE,English,English,0-18 years,1/1/18,NaN,House Ads,TRUE
+,a100000037,1/1/18,House Ads,personalization,TRUE,English,English,19-24 years,1/1/18,NaN,House Ads,TRUE
+,a100000038,1/1/18,House Ads,personalization,TRUE,English,English,24-30 years,1/1/18,NaN,House Ads,TRUE
+,a100000039,1/1/18,House Ads,personalization,TRUE,English,English,0-18 years,1/1/18,NaN,House Ads,TRUE
+,a100000040,1/1/18,House Ads,personalization,TRUE,English,English,19-24 years,1/1/18,1/18/18,House Ads,TRUE
+,a100000041,1/1/18,House Ads,personalization,TRUE,Arabic,Arabic,24-30 years,1/1/18,2/22/18,House Ads,TRUE
+,a100000042,1/1/18,House Ads,personalization,TRUE,English,English,0-18 years,1/1/18,3/9/18,House Ads,TRUE
+,a100000043,1/1/18,House Ads,personalization,TRUE,English,English,19-24 years,1/1/18,2/18/18,House Ads,TRUE
+,a100000044,1/1/18,House Ads,personalization,TRUE,Arabic,Arabic,24-30 years,1/1/18,3/3/18,House Ads,TRUE
+,a100000045,1/2/18,House Ads,personalization,TRUE,English,English,0-18 years,1/2/18,2/4/18,House Ads,TRUE
+,a100000046,1/2/18,House Ads,personalization,TRUE,English,English,19-24 years,1/2/18,1/9/18,House Ads,TRUE
+,a100000047,1/2/18,House Ads,personalization,TRUE,English,English,24-30 years,1/2/18,2/4/18,House Ads,TRUE
+,a100000048,1/2/18,House Ads,personalization,TRUE,German,German,0-18 years,1/2/18,1/21/18,House Ads,TRUE
+,a100000049,1/2/18,House Ads,personalization,TRUE,German,German,19-24 years,1/2/18,NaN,House Ads,TRUE
+,a100000050,1/2/18,House Ads,personalization,TRUE,English,English,24-30 years,1/2/18,NaN,House Ads,TRUE
+,a100000050,1/1/18,House Ads,personalization,FALSE,English,English,24-30 years,1/1/18,NaN,House Ads,FALSE
+,a100000051,1/2/18,House Ads,personalization,TRUE,English,English,30-36 years,1/2/18,NaN,House Ads,TRUE
+,a100000051,1/1/18,Push,personalization,FALSE,English,English,30-36 years,1/1/18,NaN,Push,FALSE
+,a100000052,1/2/18,House Ads,personalization,TRUE,English,English,36-45 years,1/2/18,NaN,House Ads,TRUE
+,a100000052,1/1/18,House Ads,personalization,FALSE,English,English,36-45 years,1/1/18,NaN,House Ads,FALSE
+,a100000053,1/2/18,House Ads,personalization,TRUE,English,English,45-55 years,1/2/18,NaN,House Ads,TRUE
+,a100000053,1/1/18,House Ads,personalization,FALSE,English,English,45-55 years,1/1/18,NaN,House Ads,FALSE
+,a100000054,1/2/18,House Ads,personalization,TRUE,English,English,55+ years,1/2/18,NaN,House Ads,TRUE
+,a100007265,1/16/18,Email,personalization,FALSE,German,German,24-30 years,1/16/18,NaN,Email,FALSE
+,a100007266,1/16/18,Email,personalization,TRUE,German,German,24-30 years,1/16/18,NaN,Email,TRUE
+,a100007267,1/16/18,Email,personalization,TRUE,German,German,0-18 years,1/16/18,NaN,Email,TRUE
+,a100007268,1/16/18,Email,personalization,TRUE,German,German,19-24 years,1/16/18,NaN,Email,TRUE
+,a100007269,1/16/18,Email,personalization,TRUE,German,German,24-30 years,1/16/18,NaN,Email,TRUE
+,a100007270,1/16/18,Email,personalization,TRUE,German,German,24-30 years,1/16/18,NaN,Email,TRUE
+,a100007271,1/16/18,Email,personalization,TRUE,German,German,0-18 years,1/16/18,NaN,Email,TRUE
+,a100007272,1/16/18,Email,personalization,TRUE,German,German,19-24 years,1/16/18,NaN,Email,TRUE
+,a100007273,1/16/18,Email,personalization,TRUE,German,German,24-30 years,1/16/18,NaN,Email,TRUE
+,a100007274,1/16/18,Email,personalization,TRUE,German,German,24-30 years,1/16/18,NaN,Email,TRUE
+,a100007275,1/16/18,Email,personalization,TRUE,German,German,0-18 years,1/16/18,NaN,Email,TRUE
+,a100007276,1/16/18,Email,personalization,TRUE,German,German,19-24 years,1/16/18,NaN,Email,TRUE
+,a100007277,1/16/18,Email,personalization,FALSE,German,German,0-18 years,1/16/18,NaN,Email,FALSE
+,a100007278,1/16/18,Email,control,TRUE,German,German,19-24 years,1/16/18,NaN,Email,TRUE
+,a100007279,1/16/18,Email,control,TRUE,German,German,24-30 years,1/16/18,NaN,Email,TRUE
+,a100007280,1/17/18,Email,control,TRUE,German,German,30-36 years,1/17/18,NaN,Email,TRUE
+,a100007281,1/17/18,Email,control,TRUE,German,German,36-45 years,1/17/18,NaN,Email,TRUE
+,a100007282,1/17/18,Email,control,TRUE,German,German,45-55 years,1/17/18,2/25/18,Email,TRUE
+,a100007283,1/17/18,Email,control,TRUE,German,German,55+ years,1/17/18,4/5/18,Email,TRUE
+,a100007284,1/17/18,Email,control,TRUE,German,German,0-18 years,1/17/18,2/12/18,Email,TRUE
+,a100007285,1/17/18,Email,control,TRUE,German,German,19-24 years,1/17/18,4/4/18,Email,TRUE
+,a100007286,1/17/18,Email,control,TRUE,German,German,24-30 years,1/17/18,3/5/18,Email,TRUE
+,a100007287,1/17/18,Email,control,TRUE,German,German,30-36 years,1/17/18,2/14/18,Email,TRUE
+,a100007288,1/17/18,Email,control,TRUE,German,German,36-45 years,1/17/18,4/26/18,Email,TRUE
+,a100007289,1/17/18,Email,control,TRUE,German,German,45-55 years,1/17/18,1/27/18,Email,TRUE
+,a100007290,1/17/18,Email,control,TRUE,German,German,55+ years,1/17/18,1/24/18,Email,TRUE
+,a100007291,1/17/18,Email,control,FALSE,German,German,55+ years,1/17/18,NaN,Email,FALSE
+,a100007292,1/5/18,Instagram,control,TRUE,German,German,0-18 years,1/5/18,NaN,Instagram,TRUE
+,a100007293,1/17/18,Email,control,TRUE,German,German,0-18 years,1/17/18,NaN,Email,TRUE
+,a100007294,1/6/18,Facebook,control,FALSE,German,German,0-18 years,1/6/18,NaN,Facebook,FALSE

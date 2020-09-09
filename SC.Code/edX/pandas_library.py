@@ -4,7 +4,7 @@
 IN-WORK-OUT
 Created on Thu Aug 20 00:06:09 2020
 
-@author: scelis
+@author: scelis - ¯\_(ツ)_/¯
 pandas biblioteca que proporciona un alto rendimiento, 
 estructuras de datos fáciles de usar y 
 herramientas de análisis de datos 
@@ -15,8 +15,15 @@ https://www.datacamp.com/community/blog/python-pandas-cheat-sheet
 """
 
 # Trabajando con pandas -
+# Rows - default
+# axis=0 axis='rows'
+
+# Columns
+# axis=1 axis='columns'
+
 
 import pandas as pd
+import numpy as np
 
 # Asking For Help
 help(pd.Series.loc)
@@ -26,42 +33,83 @@ help(pd.Series.loc)
 # definir una serie
 s = pd.Series([3, -5, 7, 4], index=['a', 'b', 'c', 'd'])
 
-# definir un dataFrame
+# definir un DataFrame
 data = {'Country': ['Belgium', 'India', 'Brazil'],
 'Capital': ['Brussels', 'New Delhi', 'Brasília'],
-'Population': [11190846, 1303171035, 207847528]}
+'Population': [11190846, 1303171035, 207847528],
+'Channel': ['Facebook', '', '']
+}
 
+# Crear el df DataFrame
 df_Population = pd.DataFrame(data,
-columns=['Country', 'Capital', 'Population'])
+                             columns=['Country', 'Capital', 'Population', 'Channel'])
 
 from sklearn.datasets import load_boston
 boston_dataSet = load_boston()
 desc =  boston_dataSet.DESCR
+print(desc)
 
-# print("Describe el dataframe: boston_dataSet => ", desc)
-print("Describe el dataframe: boston_dataSet => ", desc[148:1225])
+# print("Describe el DataFrame: boston_dataSet => ", desc)
+print("Describe el DataFrame: boston_dataSet => ", desc[148:1225])
 
-df = pd.DataFrame(boston_dataSet.data,columns=[boston_dataSet.feature_names])
-
-# print(df)
-df.describe()
+df = pd.DataFrame(boston_dataSet.data,
+                  columns=[boston_dataSet.feature_names])
 
 # Crea la columna MEDV
 df['MEDV'] = boston_dataSet.target[df.index]
-df.describe()
+
+
+# Crea una nueva New Boolean column dependiendo de una condición
+df_Population['is_newBoolean'] = np.where(
+    df_Population['Population'] > 11190846, True, False
+    )
+
+df_Population.is_newBoolean.head()
+
+# Tipo de datos - Common data types
+
+# Strings (objects)
+# Numbers (floats, integers)
+# Boolean values(True, False)
+# Dates
 
 # Display las primeras head y ultimas tail filas del df
+# print(df)
+print(df.head())
 df.head()
 df.tail()
-
-# Display el type de datos de cada columna del dataframe
+# Display las primeras filas de la 'name_variable'
+df.name_variable.head()
+df.head(10)
+df.tail(10)
+# like summary estadístico de todas las columnas numéricas, 
+# return: count, mean, std, min, 25%, 50%, 75%, max
+df.describe()
+# para las columnas alfanumérica, return, count, unique,  top, freq
+df.describe(include='object') 
+# las estadísticas de resumen se calculan para todas las columnas - NaN - si la estadística no es correcta para esa columna
+df.describe(include='all')
+# especificando diferentes tipos
+df.describe(include=['int', 'float', 'object']) 
+# especificando un tipo de percentiles que quiera analizar
+df.describe(percentiles=[.1,.5,.9]) 
+# excluye los float
+df.describe(exclude='float') 
+# resume of DataFrame - check column data types and non-missing values . check tipo de datos
+df.info()
+# Display el tipo de datos de cada columna del DataFrame
 df.dtypes
-
+# Display el tipo de datos de una columna del DataFrame
+print(df_Population['Population'].dtype)
+# Cambiar el tipo de datos de una columna
+df_Population['Population']=df_Population['Population'].astype('int')
+df_Population.dtypes
 # Display the index columns - RangeIndex(start=0, stop=506, step=1)
 df.index
-
 # Display MultiIndex([(   'CRIM',),(     'ZN',), ... ,  (   'MEDV',)],)
 df.columns 
+
+
 
 # Display an array with head and tail
 df.to_numpy()
@@ -143,6 +191,9 @@ df.corr()["MEDV"].sort_values()
 # I/O - files
 # Read and Write to CSV
 pd.read_csv('titanic.csv', header=None, nrows=5)
+
+marketing = pd.read_csv('marketing.csv')
+
 df.to_csv('boston.csv')
 
 # Read and Write to Excel
@@ -175,7 +226,7 @@ df.loc[[0], ['CRIM']]
 
 # By Label/Position
 # Select single row of subset of rows
-df.[2]
+df.loc[2]
 
 # Display la columna n del dataSet
 # Select column by index -  - DataFrame - [506 rows x 1 columns]
@@ -189,3 +240,20 @@ X = df.loc[df.index[0:506], ['LSTAT']]
 X = boston_dataSet.data[df.index[0:506],[12]].reshape(-1,1)
 y = boston_dataSet.data[df.index[0:506],[13]].reshape(-1,1)
 print(y)
+
+
+# =============================================================================
+# Remove columns a un df - drop
+# =============================================================================
+
+marketing.drop(columns=['PCDG', 'PCND', 'PCESV'], axis=1, inplace=True)
+
+marketing.drop(columns=['Unnamed: 0'], axis=1, inplace=True)
+
+# =============================================================================
+# Fechas
+# =============================================================================
+
+# Convertir la columna existente en tipo datetime column
+marketing['date_served'] = pd.to_datetime(marketing['date_served'])
+

@@ -80,9 +80,11 @@ df.head()
 df.tail()
 # Display las primeras filas de la 'name_variable'
 df.name_variable.head()
+# returns the first few rows (the “head” of the DataFrame).
 df.head(10)
 df.tail(10)
 # like summary estadístico de todas las columnas numéricas, 
+# calculates a few summary statistics for each column.
 # return: count, mean, std, min, 25%, 50%, 75%, max
 df.describe()
 # para las columnas alfanumérica, return, count, unique,  top, freq
@@ -96,9 +98,12 @@ df.describe(percentiles=[.1,.5,.9])
 # excluye los float
 df.describe(exclude='float') 
 # resume of DataFrame - check column data types and non-missing values . check tipo de datos
+# shows information on each of the columns, such as the data type and number of missing values.
 df.info()
 # Display el tipo de datos de cada columna del DataFrame
 df.dtypes
+# combine head() and tail()
+print(df)
 # Display el tipo de datos de una columna del DataFrame
 print(df_Population['Population'].dtype)
 # Cambiar el tipo de datos de una columna
@@ -108,7 +113,8 @@ df_Population.dtypes
 df.index
 # Display MultiIndex([(   'CRIM',),(     'ZN',), ... ,  (   'MEDV',)],)
 df.columns 
-
+# returns the number of rows and columns of the DataFrame.
+df.shape 
 
 
 # Display an array with head and tail

@@ -1,4 +1,29 @@
+"""
+IN-WORK-OUT
+@author: scelis - ¯\_(ツ)_/¯
+
+http://www.astro.up.pt/~sousasag/Python_For_Astronomers/Python_qr.pdf
+
+
+functions.py
+"""
+
 # functions.py - How do define functions in Python? and How do you call functions in Python
+# is a reusable block of code which performs operations specified in the function. 
+
+    # Pre-defined functions
+    # User defined functions
+
+# Here are simple rules to define a function in Python:
+
+# Functions blocks begin def followed by the function name and parentheses ().
+# There are input parameters or arguments that should be placed within these parentheses.
+# You can also define parameters inside these parentheses.
+# There is a body within every function that starts with a colon (:) and is indented.
+# You can also place documentation before the body
+# The statement return exits a function, optionally passing back a value
+
+# If there is no return statement, the function returns None. 
 
 def hello():
     print("Hello world")
@@ -8,6 +33,128 @@ hello()
 # -O-J-O- Ejecución
 
 # Hello world
+
+print("--------------------")
+
+# The following two functions are equivalent:
+
+def MJ():
+    print('Michael Jackson')
+    
+def MJ1():
+    print('Michael Jackson')
+    return None
+
+# None is the default return statement, See what functions returns are
+
+print(MJ())
+# Michael Jackson
+# None
+print(MJ1())
+# Michael Jackson
+# None
+
+print("--------------------")
+
+# return is useful when you want your output to be dependent on some condition
+
+def type_of_album(artist, album, year_released):
+    
+    print(artist, album, year_released)
+    if year_released > 1980:
+        return ("Modern")
+    else:
+        return ("Oldie")
+    
+x = type_of_album("Michael Jackson", "Thriller", 1980)
+
+print(x)
+
+
+print("--------------------")
+
+def type_of_album(y):
+    """
+    Recibe una tupla 
+
+    Parameters
+    ----------
+    y : tuple
+        artist, 
+        album, 
+        year_released.
+
+    Returns
+    -------
+    str
+        Modern or Oldier
+    """
+    print(y)
+    if y[2] > 1980:
+        return ("Modern")
+    else:
+        return ("Oldie")
+
+y =  ("Michael Jackson", "Thriller", 1980)   
+
+print(type_of_album(y))
+
+print("--------------------")
+
+
+# Add 1 to a and store as b
+print("define the function: def add(a) ")
+
+def add(a):
+    """
+    Parameters
+    ----------
+    a : int
+        crea la variable b, que suma 1 a la variable a
+
+    Returns
+    -------
+    b
+
+    """
+    b = a + 1
+    print(a, "if you add one", b)
+    return(b)
+
+print("runing the function: add(10) ")
+add(10)
+
+help(add) # documentation, documentación de una función """
+
+print("--------------------")
+
+def printStuff(Stuff):
+    for i,s in enumerate(Stuff):
+        print("Album", i, "Rating is ", s)
+
+album_ratings = [10.0,8.5,9.5]
+printStuff(album_ratings)
+
+# Album 0 Rating is  10.0
+# Album 1 Rating is  8.5
+# Album 2 Rating is  9.5
+
+print("--------------------")
+
+def ArtistNames(*names):
+    for name in names:
+        print (name)
+        
+ArtistNames("Michael Jackson", "AC/DC", "Pink Floyd")
+
+# Michael Jackson
+# AC/DC
+# Pink Floyd
+        
+ArtistNames("Michael Jackson", "AC/DC")
+
+# Michael Jackson
+# AC/DC
 
 print("--------------------")
 
@@ -220,6 +367,7 @@ printTwice_02("esto tambien es un string")
 
 print("--------------------")
 
+ # inside a function is called a local variable.
 # Cuando creas una variable local dentro de una función, sólo existe dentro de la función, y no puedes usarla fuera.
 
 def printLine(part1, part2):
@@ -242,6 +390,130 @@ print("--------------------")
 #   File "/home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/functions.py", line 238, in <module>
 #     print(line)
 # NameError: name 'line' is not defined
+
+print("--------------------")
+
+def square(a):
+    
+    # Local variable b
+    b = 1
+    c = a * a + b
+    print(a, "if you square + 1", c) 
+    return(c)
+
+print("--------------------")
+
+def Thriller():
+    Date=1982
+    return Date
+
+Thriller() # 1982
+
+Date # Es una variable de la función por tanto ya no existe
+
+# Traceback (most recent call last):
+
+#   File "<ipython-input-214-25a99ea26456>", line 6, in <module>
+#     Date
+
+# NameError: name 'Date' is not defined
+
+
+print("--------------------")
+
+def ACDC(y):
+    print(Rating)
+    return Rating+y
+
+Rating=9
+
+Z=ACDC(1)
+
+Z # 10
+
+print(Rating) # 9
+
+print("--------------------")
+
+# Global Scope
+def PinkFloyd():
+    global ClaimedSales # the variable will be a global variable
+    ClaimedSales = "45 millon"
+    return ClaimedSales
+
+PinkFloyd() # '45 millon'
+
+print(ClaimedSales) # 45 millon
+
+print("--------------------")
+
+# Example of global variable
+
+artist = "Michael Jackson"
+def printer1(artist):
+    internal_var = artist
+    print(artist, "is an artist")
+    
+printer1(artist)
+
+artist = "Michael Jackson"
+# printer(internal_var)
+
+# We got a Name Error: name 'internal_var' is not defined
+
+def printer(artist):
+    global internal_var 
+    internal_var= "Whitney Houston"
+    print(artist,"is an artist")
+
+printer(artist) 
+printer(internal_var)
+
+print("--------------------")
+
+# print out each element in a list:
+def PrintList(the_list):
+    for element in the_list:
+        print(element)
+        
+PrintList(['1', 1, 'the man', "abc"])
+# 1
+# 1
+# the man
+# abc
+    
+print("--------------------")
+
+# Scope => where the variable is accesible - Global
+# outside a function definition is a global variable it's accessible and modifiable throughout the program
+# After the value is returned, the scope of the function is deleted
+# two ways for call a function
+# Local variables only exist within the scope of a function.
+
+# call the function with Initializes Global variable  
+x = 3
+# Makes function call and return function a y
+y = square(x)
+y
+
+#
+# 3 if you square + 1 10
+# 10
+#
+
+# call the function with an input
+square(3)
+
+print("--------------------")
+
+def AddDC(x):
+    x=x+"DC"
+    print(x)
+    return(x)
+
+x="AC"
+z=AddDC(x)
+
 print("--------------------")
 
 def recurse():
@@ -293,5 +565,64 @@ def distance(x1, y1, x2, y2):
     print(f"dsquared is: {dsquared}")
     result = math.sqrt(dsquared)
     return result
+
+print("--------------------")
+
+# Define a function for multiple two numbers
+
+def Mult(a, b):
+    c = a * b
+    return(c)
+
+Mult(2, 3) # 6
+Mult(10.0, 3.14) # 31.400000000000002
+Mult(2, "Michael Jackson ") # 'Michael Jackson Michael Jackson '
+
+print("--------------------")
+
+# Define the function for combining strings
+def con(a, b):
+    return(a + b)
+
+# Test on the con() function
+con("This ", "is") # 'This is'
+
+print("--------------------")
+
+# Pre-defined functions
+
+# The print() function
+album_ratings = [10.0, 8.5, 9.5, 7.0, 7.0, 9.5, 9.0, 9.5] 
+print(album_ratings)
+
+# The sum() function -  in a list or tuple
+sum(album_ratings) # 70.0
+
+# The len() function -  in a list or tuple
+len(album_ratings) # 8
+
+# create a new list sorted
+sorted(album_ratings) # [7.0, 7.0, 8.5, 9.0, 9.5, 9.5, 9.5, 10.0]
+
+# sort list no create a new list
+(album_ratings).sort()
+
+print("--------------------")
+
+# Example for setting param with default value,
+# Por ejemplo si yo quiero establecer un mínimo
+
+def isGoodRating(rating=4): 
+    if(rating < 7):
+        print("this album sucks it's rating is",rating)
+    else:
+        print("this album is good its rating is",rating)
+
+print("--------------------")
+
+def con(a, b):
+    return(a + b)
+
+con(['a', 1], ['b', 1]) # ['a', 1, 'b', 1]
 
 print("--------------------")

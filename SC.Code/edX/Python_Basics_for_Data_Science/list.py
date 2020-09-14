@@ -94,7 +94,8 @@ L.append(["pop",10])
 L3 = [ "Michael Jackson", 10.2]
 L3.append(['a','b'])
 L3 # ['Michael Jackson', 10.2, ['a', 'b']]
-
+len(L3)
+type(L3)
 # Change the element based on the index
 A = ["disco", 10, 1.2]
 print('Antes cambio:', A) # Antes cambio: ['disco', 10, 1.2]

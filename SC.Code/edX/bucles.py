@@ -1,10 +1,25 @@
+"""
+@author: scelis - ¯\_(ツ)_/¯
+"""
 ##########################################
 # Primer ejemplo: range                  #
 # numero empieza 0 < 10 e incremento en 1#
 ##########################################
+print(range(3)) # range(0, 3)
+
 for numero in range(10):
 	print(numero)
 
+for i in range(0,5):
+    print("i: ", [i])
+
+# O-J-O Ejecucion 
+# i:  [0]
+# i:  [1]
+# i:  [2]
+# i:  [3]
+# i:  [4]
+    
 # Primer ejemplo: range
 # numero empieza 0 < 10 e incremento en 1
 for numero in range(10):
@@ -415,6 +430,67 @@ else:
 # i: 5 - a: 0.000000
 # break:
 
+# Let’s say we would like to iterate through list dates and stop at the year 1973, then print out the number of iterations. This can be done with the following block of code:
+
+# While Loop Example
+dates = [1982, 1980, 1973, 2000]
+
+i = 0
+year = 0
+
+while(year != 1973):
+    year = dates[i]
+    i = i + 1
+    print(year)
+
+print("It took ", i ,"repetitions to get out of loop.")    
+
+# 1982
+# 1980
+# 1973
+# It took  3 repetitions to get out of loop.
+
+# Imprime los valores de una lista con while loop
+# display the values of the Rating of an album playlist stored in the list PlayListRatings
+PlayListRatings = [10, 9.5, 10, 8, 7.5, 5, 10, 10]
+score = PlayListRatings[0]
+i = 0
+while(score >= 6):
+    print ("i:", i, "score:",PlayListRatings[i]) 
+    i+=1
+    score = PlayListRatings[i]
+print("este es el primer menor que 6", "i:", i, "score:",PlayListRatings[i])
+
+# i: 0 score: 10
+# i: 1 score: 9.5
+# i: 2 score: 10
+# i: 3 score: 8
+# i: 4 score: 7.5
+# este es el primer menor que 6 i: 5 score: 5
+
+squares = ['orange', 'orange', 'purple', 'blue ', 'orange']
+new_squares = []
+i = 0
+while(squares[i] == 'orange'):
+    new_squares.append(squares[i])
+    i = i + 1
+print (new_squares)
+# ['orange', 'orange']
+
+squares = ['orange', 'orange', 'purple', 'blue ', 'orange']
+len(squares)
+type(squares)
+new_squares = []
+i=0
+color = squares[i]
+print(color, type(color))
+while(color == 'orange'):
+    print(color)
+    i += 1
+    new_squares.append(color)
+    color = squares[i]
+print("new_squares", new_squares)
+# new_squares ['orange', 'orange']
 
 ###############
 #  Excercise  #
@@ -521,3 +597,55 @@ for food in foods:
 
 print("--------------------")
 
+# For loop example
+
+dates = [1982,1980,1973]
+N = len(dates)
+
+for i in range(N):
+    print(dates[i])   
+
+# -O-J-O- Ejecución
+# 1982
+# 1980
+# 1973
+
+# Use for loop to change the elements in list
+squares = ['red', 'yellow', 'green', 'purple', 'blue']
+
+for i in range(0, 5):
+    print("Antes square ", i, 'is',  squares[i])
+    squares[i] = 'weight'
+    print("Despues square ", i, 'is',  squares[i])
+    
+# access the index and the elements of a list 
+# Loop through the list and iterate on both index and element value
+squares=['red', 'yellow', 'green', 'purple', 'blue']
+
+# i is the index 
+# square is the element in the list
+# imprime el indice y el elemento de la lista a la vez
+for i, square in enumerate(squares):
+    print(i, square)    
+    
+# 0 red
+# 1 yellow
+# 2 green
+# 3 purple
+# 4 blue    
+
+# the elements
+Genres = ['rock', 'R&B', 'Soundtrack', 'R&B', 'soul', 'pop']
+for i in Genres:
+    print(i)
+
+
+#the elements and index
+Genres=[ 'rock', 'R&B', 'Soundtrack', 'R&B', 'soul', 'pop']
+for i, j in enumerate(Genres):
+    print(i, j)
+
+
+# all the element between -5 and 5 
+for i in range(-5,6):
+    print(i)

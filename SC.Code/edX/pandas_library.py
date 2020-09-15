@@ -51,12 +51,51 @@ df_songs = pd.DataFrame(songs)
 # Conocer todos los types de datos de df
 df_songs.dtypes
 df_songs.info
-# Create un df basado en una columna
-x=df_songs[['Length']]
-type(x)
+dir (df_songs)
 
-y=df_songs[['Length', "Album"]]
-type(y)
+# Get the column as a dataframe - Crea un dataframe de una columna del dframe
+x = type(df_songs[['Album']])
+x # pandas.core.frame.DataFrame
+dir (x)
+
+
+# Get the column as a series - Crea una serie de una columna del dframe
+x=df_songs['Length']
+type(x) # pandas.core.series.Series
+dir (x)
+
+# unique() method like "sql_distinct", determine the unique elementos in a column of a dataframe
+x.unique()
+
+df_songs['Length'].unique() 
+# array(['00:42:19', '00:42:22', '00:42:49', '00:57:44', '00:46:33', 'NaN'],
+#       dtype=object)
+
+# Create un new df que cumpla una condición
+df_songs_gt_1980=df_songs['Released']>=1980
+df_songs_gt_1980
+# 0     True
+# 1     True
+# 2    False
+# 3     True
+# 4    False
+# 5    False
+# 6    False
+# 7    False
+# Name: Released, dtype: bool
+df_songs_gt_1980=df_songs[df_songs['Released']>=1980]
+df_songs_gt_1980
+#            Album  Released    Length
+# 0       Thriller      1982  00:42:19
+# 1  Back in Black      1980  00:42:22
+# 3  The Bodyguard      1992  00:57:44
+df_songs_gt_1980
+type(df_songs_gt_1980) # pandas.core.frame.DataFrame
+
+# Get multiple columns as a dataframe - Crea un dataframe de varias columna del dframe
+y=df_songs['Length', "Album"]
+type(y) # pandas.core.frame.DataFrame
+dir (y)
 
 
 # Asking For Help
@@ -183,8 +222,13 @@ el índice de filas para seleccionar los datos que se desean,
 también pude tomar un número entero como número de fila o de columna.
 loc_pandas.py
 """
+# Access the column using the name
 df_songs.loc[0,'Album'] # 'Thriller'
+
+# Access the column using the name
 df_songs.loc[0,'Length'] # '00:42:19'
+
+# Access multiples columns using the names
 df_songs.loc[1,['Album','Released', 'Length' ]]
 # Album       Back in Black
 # Released             1980
@@ -205,6 +249,14 @@ df_boston.loc[df_boston.index[0], 'CRIM']
 # Display [506 rows x 14 columns]
 df_boston.loc[df_boston.index]
 
+   
+# You can perform slicing (cortar) using the name of the column:
+# Slicing the dataframe using name
+df_songs.loc[0:2, 'Album':'Released']
+                       # Album  Released
+# 0                   Thriller      1982
+# 1              Back in Black      1980
+# 2  The Dark Side of the Moon      1973
 """
 basado en números enteros.
 Utiliza números de columna y números de fila para obtener los
@@ -212,9 +264,18 @@ datos en posiciones particulares en el df
 
 iloc_pandas.py
 """
+# 1st row and the 1st column
+df_songs.iloc[0,0] # 'Thriller' 
 
-df_songs.iloc[0,0] # 'Thriller'
+# 2nd row and the 1st column
+df_songs.iloc[1,0] # 'Back in Black'
+
+# 1st row and the 3rd column
 df_songs.iloc[0,2] # '00:42:19'
+
+
+df_songs.iloc[0,2] # '00:42:19'
+
 df_songs.iloc[1,[0,1,2]]
 
 # Album       Back in Black
@@ -241,7 +302,7 @@ df_boston.iloc[:, 1:3]
 df_boston.iloc[0:0]
 # =============================================================================
 # 
-# Empty DataFrame
+# Empty DataFrameº
 # Columns: [(CRIM,), (ZN,), (INDUS,), (CHAS,), (NOX,), (RM,), (AGE,), (DIS,), (RAD,), (TAX,), (PTRATIO,), (B,), (LSTAT,), (MEDV,)]
 # Index: []
 # 
@@ -256,6 +317,13 @@ df_boston.iloc[0, 0]
 # para obtener un acceso rápido a un elemento
 df_boston.iloc[1, 1]
 df_boston.iat[1, 1]
+
+# You can perform slicing (cortar) using the index of the column:
+# Slicing the dataframe
+df_songs.iloc[0:2, 0:3] 
+#            Album  Released    Length
+# 0       Thriller      1982  00:42:19
+# 1  Back in Black      1980  00:42:22  
 
 # Seleccionando valores de un DataFrame donde se cumple una condición booleana.
 df_boston[df_boston > 0]
@@ -349,8 +417,26 @@ import pandas as pd
 df_test=pd.DataFrame({'a':[1,2,1],'b':[1,1,1]})
 df_test.head()
 # find the unique values in column  'a' :
-df_test['a']
+df_test['a'].unique() # array([1, 2])
 
-# return a dataframe with only the rows where column  a is less than two 
+# return a dataframe with only the rows where column a is less than two 
+df_test_new = df_test['a'] < 2
+df_test_new
+# [0     True
+#  1    False
+#  2     True
+#  Name: a, dtype: bool]
 
-df_test_new =
+df_test_new = df_test[df_test['a'] < 2]    
+df_test_new
+#    a  b
+# 0  1  1
+# 2  1  1
+
+# Save as CSV => salvar un df como un fichero CSV
+
+wcsv_path = '/home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/Python_Basics_for_Data_Science/songs_gt_1980.csv'
+df_songs_gt_1980.to_csv(wcsv_path)
+
+
+dir(df_songs_gt_1980)

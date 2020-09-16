@@ -119,7 +119,7 @@ df_Population = pd.DataFrame(data,
 
 from sklearn.datasets import load_boston
 boston_dataSet = load_boston()
-type(boston_dataSet)
+type(boston_dataSet) # sklearn.utils.Bunch
 desc =  boston_dataSet.DESCR
 print(desc)
 

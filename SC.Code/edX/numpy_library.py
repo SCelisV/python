@@ -354,8 +354,6 @@ plt.plot(x,y)
 
 # Import the libraries
 
-import time 
-import sys
 import numpy as np 
 
 import matplotlib.pyplot as plt
@@ -415,3 +413,141 @@ print("The dot product is:", np.dot(a,b))
 # R:/
 # The vectors used for question ([-1, 1] and [1, 1]) and ([1, 0] and [0, 1]) are perpendicular. 
 # As a result, the dot product is zero.
+
+# numpy 2D - Matriz
+
+a=[[11,12,13],[21,22,23],[31,32,33]]
+
+# cast A=np.array([[11,12,13],[21,22,23],[31,32,33]]) ó
+A=np.array(a)
+# array([[11, 12, 13],
+#        [21, 22, 23],
+#        [31, 32, 33]])
+
+# obtain the number of axes or dimensions referred to as the rank. 
+# ver los [], cada par es una dimensión
+# A=np.array( [[11,12,13],[21,22,23],[31,32,33]] ) => ndim = 2
+# A=np.array([[[11,12,13],[21,22,23],[31,32,33]]]) => ndim = 3
+# Rank does not refer to the number of linearly independent columns like a Matriz 
+# It's useful to think of "ndim" as the number of nested - (anidadas) list
+A.ndim # 2
+
+# The number of lists the list contains doesn't have to do with the dimension but the shape of the list
+# returns a tuple corresponding to the size or number of each dimension
+# As with the 1D array, the attribute "shape" returns a tuple
+# It's helpful to use the rectangular representation as well
+# The first element in the tuple corresponds to the number of nested list contained in the original list or the number of rows.
+# The second element corresponds to the size of each of the nested lists or the number of colums in the rectangular array 0.
+# axis0 - vertical
+# axis 1 - horizontal
+A.shape # (3, 3)
+
+# The number of elements 3 rows * 3 columns
+A.size # 9
+
+#  __0__1__2
+# 0|11 12 13
+# 1|21 22 23
+# 2|31 32 33
+
+
+# Acces the differents elements of the array A[0][0], A[row][col]
+# A: [[A[0][0],A[0][1],A[0][2]], [A[1][0],A[1][1],A[1][2]], [A[2][0],A[2][1],A[2][2]]]
+
+A[0][0] # 11
+A[0, 0] # 11
+A[1][2] # 23
+A[1, 2] # 23
+
+# slicing (cortar) in numpy arrays
+A[0][0:2] # array([11, 12])
+A[0, 0:2] # A[row0, 2col(0 y 1)] - array([11, 12]), 
+
+A[0:2, 2] # array([13, 23])
+A[0:2, 2] # A[2rows(0 y 1), Col2] - array([13, 23])
+
+#  _0_1
+# 0|1 0
+# 1|0 1
+
+# sum two matriz rows = cols
+X = np.array( [[1,0],[0,1]] )
+# array([[1, 0],
+#        [0, 1]])
+Y = np.array( [[2,1],[1,2]] )
+# array([[2, 1],
+#        [1, 2]])
+Z = X+Y
+type(Z) # numpy.ndarray
+# array([[3, 1],
+#        [1, 3]])
+
+# multiplay by scalar number
+Z = Y*2
+Z
+# array([[4, 2],
+#        [2, 4]])
+
+# multiplay two arrays - producto de los elementos o producto Hadamard 
+# multiply each of the elements in the same position
+# The result is a new matrix that is the same size as matrix Y or X
+
+Z = X*Y
+Z
+# array([[2, 0],
+#        [0, 2]])
+
+# multiply two matriz - the dot product
+A = np.array( [[0,1,1],[1,0,1]] )
+B = np.array( [[1,1],[1,1],[-1,1]] )
+
+C = np.dot(A,B) # Algebraicamente the number colums A = the number filas B
+C
+# array([[0, 2],
+#        [0, 2]])
+# irow and jcolum = dot product of the irow of A whith the j columns of B
+
+# A__0__1__2
+# 0| 0  1  1
+# 1| 1  0  1
+
+
+# B__0__1
+# 0| 1  1
+# 1| 1  1
+# 2|-1  1
+
+# A * B 
+# ___0__1
+# 0| 0  2
+# 1| 0  2
+
+# A[0][0]*B[0][0] + A[0][1]*B[1][0] + A[0][2]*B[2][0] = 0
+# A[0][0]*B[0][1] + A[0][1]*B[1][1] + A[0][2]*B[2][1] = 2
+# A[1][0]*B[0][0] + A[1][1]*B[1][0] + A[1][2]*B[2][0] = 0
+# A[1][0]*B[0][1] + A[1][1]*B[1][1] + A[1][2]*B[2][1] = 2
+
+# aplicando una function sen
+np.sin(C)
+# array([[0.        , 0.90929743],
+#        [0.        , 0.90929743]])
+
+
+C = np.array([[1,1],[2,2],[3,3]])
+C
+# array([[1, 1],
+#        [2, 2],
+#        [3, 3]])
+C.shape # (3, 2)
+
+# attribute T to calculate the transposed matrix
+# Get the transposed of C
+D = C.T
+D
+# array([[1, 2, 3],
+#        [1, 2, 3]])
+D.shape # (2, 3)
+
+
+A=np.array([[1,2],[3,4],[5,6],[7,8]])
+A.shape # (4, 2)

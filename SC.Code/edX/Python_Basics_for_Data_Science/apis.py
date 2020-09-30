@@ -196,7 +196,7 @@ gamefinder.get_json()
 games = gamefinder.get_data_frames()[0]
 games.head()
 
-#   SEASON_ID     TEAM_ID TEAM_ABBREVIATION  ... TOV  PF PLUS_MINUS
+00#   SEASON_ID     TEAM_ID TEAM_ABBREVIATION  ... TOV  PF PLUS_MINUS
 # 0     22019  1610612744               GSW  ...   9  17      -24.0
 # 1     22019  1610612744               GSW  ...   7  19        4.0
 # 2     22019  1610612744               GSW  ...  15  23       -8.0
@@ -274,3 +274,128 @@ plt.show()
 # abbreviation=['ATL', 'BOS', 'CLE', 'NOP', 'CHI', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 'LAL', 'MIA', 'MIL', 'MIN', 'BKN', 'NYK', 'ORL', 'IND', 'PHI', 'PHX', 'POR', 'SAC', 'SAS', 'OKC', 'TOR', 'UTA', 'MEM', 'WAS', 'DET', 'CHA']
 # type (abbreviation) # list
 # =============================================================================
+
+# =============================================================================
+
+# Discuss API that use some kind of AI.
+# Transcribe audio file using the Watson Text to Speech API
+# Translate the text to a new language using the Watson Language Translator API
+
+
+# In the API call, you will send a copy of the audio file to the API ( POST request )
+# The API send the text transcription of what the individual is saying (this is a GET request )
+# we send  the text we would like to translate into a second language to a second API
+# The API translate the text
+
+# Provide an overview:
+
+# - API keys and end points
+
+# API keys as a way to access the API, its the unique set of characters that the API uses to identify you and authorize you.
+# Usually your first call to the API includes the API key.
+# This will allow you access to the API.
+# In many APIs, you may get charged for each call, sol like your password you should keep your API key a secret.
+
+# End points is simply the location of the service. Its used to find the API on the internet just like a web address.
+
+# - Watson Speech to Text
+
+# !pip install ibm_watson wget
+# Import SpeechToTextV1 from IBM Watson
+# Primero importamos SpeechToTextV1 de ibm_watson.
+from ibm_watson import SpeechToTextV1
+import json
+# service endpoint is based on:
+# se basa en la ubicación de la instancia de servicio, almacenamos la información en la URL variable
+url_s2t = ""
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+
+# my api key
+iam_apikey_s2t = ""
+
+# speech to text adapter object, the parameters are the endpoint and API key:
+# crear un objeto adaptador de voz a texto, los parámetros son el punto final y la clave API.
+# This object communicate with the Watson Speech to Text service
+# s2t = SpeechToTextV1(iam_apikey=iam_apikey_s2t, url=url_s2t)
+authenticator = IAMAuthenticator(iam_apikey_s2t)
+s2t = SpeechToTextV1(authenticator=authenticator)
+s2t.set_service_url(url_s2t)
+s2t
+
+# wav file to convert to text
+# !wget -O PolynomialRegressionandPipelines.mp3  https://s3-api.us-geo.objectstorage.softlayer.net/cf-courses-data/CognitiveClass/PY0101EN/labs/PolynomialRegressionandPipelines.mp3
+filename="PolynomialRegressionandPipelines.mp3"
+
+# Creamos el objeto wav con el archivo wav usando open 
+# File object create -> open file in binary format, fijamos el modo en "rb" , esto es similar al modo de lectura, pero asegura que el archivo está en modo binario.
+# usamos el método recognize para devolver el texto reconocido. 
+
+# audio=wav => the file object, el parámetro audio es el archivo objeto wav, 
+# content_type => the audio file formatel parámetro tipo_contenido es el formato del archivo de audio
+
+with open(filename, mode="rb") as wav:
+    # from the speech to text adapter object send the audio to the watson services
+    # Objet response is where stored the response that server send 
+    response = s2t.recognize(audio=wav, content_type="audio/mp3")
+
+    # The attribute result contains a dictionary that includes the translation:
+    response.result
+
+from pandas.io.json import json_normalize
+
+json_normalize(response.result['results'],"alternatives")    
+
+response
+    # result => The key results value has a list that contains a dictionary  
+recognized_text=response.result['results'][0]["alternatives"][0]["transcript"]
+type(recognized_text)   
+    # recognized_text: containt a string with a transcribed text "hello this is python "
+
+# Language Translator
+
+# Import Language Translator V3 from ibm_watson
+from ibm_watson import LanguageTranslatorV3
+
+# Assign the service endpoint to the variable url_l2 to obtain the service
+url_lt = ""
+# API key
+apikey_lt = ''
+# requires the date of the version
+version_lt = '2018-05-01'
+# language translation object LanguageTranslator
+# language_translator = LanguageTranslatorV3(iam_apikey=apikey_lt, url=url_lt, version=version_lt)
+authenticator = IAMAuthenticator(apikey_lt)
+language_translator = LanguageTranslatorV3(version=version_lt,authenticator=authenticator)
+language_translator.set_service_url(url_lt)
+language_translator
+
+from pandas.io.json import json_normalize
+json_normalize(language_translator.list_identifiable_languages().get_result(), "languages")
+# the method return the language code of a list of the languages that the service can identify
+# English "en" to Spanish "es"
+# Méthod translate to traslate the text
+# translation_response is an object detailed response
+translation_response = language_translator.translate(text=recognized_text, model_id='en-es')
+translation_response
+# text=recognized_text => Is the text 
+# model_id='en-es' => Is the type of model to translate Englihs to Spanish
+# Get the trasnlated text and assign it to the variable translation
+translation = translation_response.get_result()
+translation
+# The result is a dictionary that includes the translation word count and character count 
+# We can obtain the translation and assign it to the variable spanish_translation
+spanish_translation = translation['translations'][0]['translation']
+spanish_translation
+# translate back to English
+translation_new = language_translator.translate(text=spanish_translation, model_id='es-en').get_result()
+# obtain the translation and assign it to the variable
+translation_eng = translation_new['translations'][0]['translation']
+translation_eng
+# translate to French 
+French_translation = language_translator.translate(text=translation_eng, model_id='en-fr').get_result()
+French_translation
+# - Watson Translate
+ # obtain the translation and assign it to the variable
+French_translation = translation_new['translations'][0]['translation']
+French_translation                          
+# # =============================================================================

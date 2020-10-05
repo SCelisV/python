@@ -1,84 +1,216 @@
 # MachineLearning_00_teory.py
 # MachineLearning_00_code.py
+
+# Módelos predictivos con Machine Learning - MPML - SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/jupyter/MPML
+# Machine Learning (intro práctica) - ML - SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/Machine_Learning
+# Python Basics for Data Science PBfDS - SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/Python_Basics_for_Data_Science
+
 """ 
+.-. Machine Learning 
+
+Es el subcampo de la ciencia de la computación que "da a las computadoras la habilidad de aprender sin ser programadas explicitamente".
+
+Es decir, reconocer y diferenciar los datos en un conjunto de caracteristicas detalladas, de tal forma que al escribir algunas reglas ó métodos para que las computadoras sean "inteligentes" y puedan representar ese conjunto de datos de forma generalizada e incluso permita detectar casos nuevos construyendo un modelo que sea capaz de observar todos los conjuntos de caracteristicas, y su correspondiente tipo y aprender el patron de cada uno. (entender y diferenciar), de tal forma que aprendan de ellos mismos y encuentren información oculta.
+
+Se utiliza en muchos campos de la industria, 
+- Salud (cancer), árboles de decisión que ayudan a prescribir la medicina de sus pacientes, partiendo de sus datos históricos.
+- Finanzas, aprobación ó no de operaciones, segmentación de clientes, predecir la probabilidad de impago para cada solicitante, predecir el comportamiento de sus clientes, (abandono ó fidelidad)..etc.
+- Entretenimiento, You Tube, Amazon, NetFlix utilizan modelos de Recomendación para producir sugerencias que el usuario pueda disfrutar.
+- Chatbots, juegos de ordenador, reconocimiento facial, acceso a los moviles. 
+- Cancer detection, Predicting economic trends, Predicting customer churn, Recomendations engines
+
+
+Techniques ML - Técnicas de Machine Learning - Machine learning techniques.
+===========================================================================
+
+    Regression/Estimation - Predicting continuos value - Predecir un valor continuo.
+    Predecir un valor numérico (continuo), tenemos un problema de regresión.
+    Aproximación que modela una relación entre una variable escalar dependiente ("Y") y una o más variables explicativas ("X")
+    Dibujará una recta que nos indicará la tendencia del conjunto de datos.
+    Nos ayudará a predecir en función de un valor X un valor Y.
+
+    Classification - Predicting the item class/category or case.
+    Predecir una clase (ó categoría), tenemos un problema de clasificación.
+Applications: Spam detection, image recognition.
+    una celula es Maligna ó Benigna
+    un cliente se va a retirar ó no
+Algorithms: 
+
+
+    Clustering - Finding the structure of data; summarization
+    Separar los datos en diferentes grupos (de casos similares), tenemos un problema de agrupamiento.
+Applications: Customer segmentation, Grouping experiment outcomes
+    los grupos de casos similares
+    pacientes similares
+    segmentación de clientes en el campo bancario
+Algorithms: k-Means, spectral clustering, mean-shift,
+
+
+    Associations - Associating frequent co-occurring item/events
+    Predecir ó buscar elementos ó sucesos que a menudo se producen conjuntamente, tenemos un problema de asociación.
+    Buscar elementos o sucesos que a menudo se producen conjuntamente
+Applications: Artículos comestibles que normalmente son comprados conjuntamente por un cliente en particular.
+Algorithms: 
+
+
+    Anomaly detection - Discovering abnormal and unusual cases.
+    Detección de anomalias, se utiliza para descubrir casos anormales e inusuales, por ejemplo, detección del fraude en tarjetas de crédito.
+
+Applications: Detección de fraude de tarjetas de crédito
+Algorithms: 
+
+
+    Dimension Reduction - Reducing the size of data (PCA)
+    Si queremos simplificar la información, tenemos un problema de reducción de dimensiones (reducir la dimensión del problema), reducir el tamaño de los datos.
+Applications: Artículos comestibles que normalmente son comprados conjuntamente por un cliente en particular.
+Algorithms: 
+ 
+
+    Recommendation systems - Recommendation items
+    Asociación de las preferencias de la gente con otros de gustos similares,  y recomendación de nuevos articulos como libros y películas.
+Applications: Artículos comestibles que normalmente son comprados conjuntamente por un cliente en particular.
+Algorithms: 
+
+
+    Sequence mining - Predicting next events; click-stream (Markov Model, HMM)
+    Se utiliza para predecir el siguiente evento, (pulsación en un website)
+Applications: secuencia de pulsación del usuario en sitios web
+Algorithms: 
+
+
+
+Artificial Intelligent vs Machine Learning vs Deep Learning
+-----------------------------------------------------------
+
+AI trata de hacer las computadoras inteligentes para imitar las funciones cognitivas de los seres humanos
+AI componentes:
+    - computer vision
+    - language processing
+    - creativity and summarization
+
+Rama de la IA que cubre la parte estadística de la IA.
+Enseña a la computadora a resolver problemas al mirar cientos ó miles de ejemplos.
+Aprender de ellos y usar esa experiencia para resolver el mismo problema en nuevas situaciones.
+Machine learning:
+    - classification
+    - clustering
+    - neural network
+
+Campo especial de ML donde las computadoras pueden aprender y tomar decisiones inteligentes por su cuenta.
+Involucra un nivel más profundo de automatización en comparación con la mayoría de los algoritmos de ML.
+Revolution in ML:
+    - deep learning
+dada
+
+# Tipos de aprendizaje => Algoritmos => Supervisado, NO Supervisado, De Refuerzo
+
+.-. Aprendizaje supervisado => LABELED DATA
+
+"Teach the model", with that knowledge, it can predict unknown or future instances.
+Observar y dirigir la ejecución de una tarea, proyecto o actividad.
+Supervisión de modelos de ML que sean capace de producir regiones de clasificación..etc.
+Educamos un modelo entrenandolo con algunos datos de un conjunto de datos (conocidos) y etiquetados, (identifican los atributos).
+Al graficar una fila o observación del dataSet sólo veremos un punto en el gráfico.
+DataSet normalmente tiene Datos númeric and categoric(for clasification).
+
+Necesita datos previamente etiquetados(lo que es correcto y lo que no es correcto) para aprender a realizar el trabajo. 
+En base a esto, el algoritmo aprenderá a resolver problemas futuros similares.
+Los algoritmos de aprendizaje supervisado son aquellos que trabajan primeramente aprendiendo con un conjunto de datos de entrenamiento "etiquetados", los cuales recibe para posteriormente trabajar con ellos, intentando asignarles correctamente una etiqueta que coincida con la que previamente tenía.
+
+El comportamiento del algoritmo se corrige en medida a cuántas veces fallo al momento de etiquetar los datos de prueba y posteriormente modifica su comportamiento para las próximas ejecuciones. 
+
+Después de terminar de entrenar con los datos etiquetados, se somete al algoritmo a trabajar con un conjunto de datos nuevos para los que no se conoce la etiqueta. 
+
+.-. Classification.-. is the process of predicting discrete class labels or categories.
+.-. Regression.-. is the process of predictin continuos values.
+
+.-. Aprendizaje NO supervisado =>  UNLABELED DATA
+
+Unsupervised learning, The model works on its own to discover information.
+Dejamos que el algoritmo trabaje por su cuenta para descubir información que puede ser invisible para el ojo humano.
+Se entrenan con el conjunto de datos y extrae conclusiones sobre datos sin etiquetar.
+Tenemos poco o nada acerca de los datos o los resultados que esperan.
+Los algoritmos de aprendizaje no supervisado no cuentan con un conjunto de datos "etiquetados" con los cuales puede entrenar y buscan intentar encontrar algún tipo de organización o patrón en los datos de entrada que recibe. 
+Estos algoritmos suelen tener un comportamiento "exploratorio", y en el caso de enfrentar un problema de agrupamiento, estos algoritmos intentan agrupar a los datos por medio de características similares pero no sin saber previamente que tipos de datos va a agrupar. 
+
+Necesita indicaciones previas, No necesita datos previamente etiquetados. Aprende a comprender y a analizar la información. Práctica sobre los datos que tiene.
+Busca relaciones entre los datos - para identificarlos - pero no los podrá "etiquetar"
+
+.-. Dimension reduction Reducen las caracteristicas haciendo que la clasificación sea más fácil.
+.-. Density estimation Se utiliza básicamente para explorar los datos y encontrar alguna estructura interna.
+.-. Market basket analysis es una técnica de modelado basada en la teoría de que si se compra cierto producto es más probable que compres otro grupo de articulos.
+.-. Clustering is grouping of data points or objects that are somehow similar by Discovering structure, Summarization, Anomaly detection. Usada para agrupar los puntos de datos u objetos similares de algún modo.
+segmentación de clientes, agrupamiento de gustos favoritos.
+
+Tiene menos modelos y menos métodos de evaluación.
+Entorno menos controlable, la máquina crea resultados para nosotros.
+
+
+.-. De Refuerzo - Aprendizaje reforzado
+
+Aprende por su cuenta, en base a conocimientos introducidos previamente, aprende en función del éxito ó fracaso.
+
+Las técnicas de aprendizaje por refuerzo se basan en modificar la respuesta del algoritmo utilizando un proceso de retroalimentación basado en un conjunto de recompensas y castigos que le permiten al algoritmo identificar cuando alguna de las acciones que realizo previamente obtuvo buenos resultados o fue un comportamiento que deberá evitar en futuras ejecuciones. Estas técnicas de aprendizaje intentan simular el proceso de aprendizaje humano, simulando la sensación de que el algoritmo aprende obteniendo información de cómo se modifica el mundo que lo rodea en respuesta de las acciones que produce.  
+
+La acción le puede generar una recompensa y la repites.. si es un castigo lo evitas 
+
+.-. Pasos a seguir para la construcción de un módelo -O-J-O-
+
+Revisar la descripción de los datos, utilizando el método describe() like summary on RStudio.
+Utilizar la media y la mediana para determinar la tendencia central.
+Tener especial atención a los percentiles para poder identificar los rangos de los datos.
+Usar una matriz de correlación para identificar las relaciones fuertes en los datos.
+Hacer visualizaciones para mejorar tu entendimiento de los datos (Box plot, Density plot, Scatter plot).
+Limpiar tus datos (NA, outliers). 
+Seleccionar un algorítmo adecuado para construir un modelo de predicción,
+Entrenar un modelo para entender los patrones que puede haber dentro de los datos,
+Predecir con precisión bastante alta en datos nuevos y desconocidos
+
+
+
+"""
+
+
+
+
+
 # Código del cálculos de los módelos:
-    - regresión ĺineal, 
-    - regresión múltiple, 
-    - regresión polinomial, 
     - Máquinas de Soporte Vectorial - Support Vector Regression
     - Árboles de decisión
-    
+
+Regression.py
+Classification.py
+Clustering.py
+ScikitLearn.py
+Scipy.py
+
+
+
 # BostonDataSet
 # =============================================================================
 """ 
 
-# Módelos predictivos con Machine Learning - MPML - SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/jupyter/MPML
-""" Analizar datos - O-J-O-
 
-    Revisar la descripción de los datos, utilizando el método describe() like summary on RStudio.
-    Utilizar la media y la mediana para determinar la tendencia central.
-    Tener especial atención a los percentiles para poder identificar los rangos de los datos.
-    Usar una matriz de correlación para identificar las relaciones fuertes en los datos.
-    Hacer visualizaciones para mejorar tu entendimiento de los datos (Box plot, Density plot, Scatter plot).
-    Limpiar tus datos (NA, outliers). """
 
-# https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html - include in anaconda3
-
+""" 
+  
 
 """     
 
-    Predecir una clase, tenemos un problema de clasificación.
-Applications: Spam detection, image recognition.
-Algorithms: SVM, nearest neighbors, random forest, 
-
-    Predecir un valor numérico, tenemos un problema de regresión.
-Applications: Drug response, Stock prices.
-Algorithms: SVR, nearest neighbors, random forest, 
-
-    Separar los datos en diferentes grupos, tenemos un problema de agrupamiento.
-Applications: Customer segmentation, Grouping experiment outcomes
-Algorithms: k-Means, spectral clustering, mean-shift,
-
-    Si queremos simplificar la información, tenemos un problema de reducción de dimensiones (reducir la dimensión del problema)
- 
 """
 
-# Machine learning => automatiza la construcción de un módelo analítico, uso de algoritmos que aprende de los datos.
 
-# Algoritmos => Supervisado, NO Supervisado, De Refuerzo
 
 # =============================================================================
+
+# 1. -> K vecinos más cercanos - KNN
+# 2. -> Árboles de decisión :  https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
+#   CART - Árboles de clasificación y regresión 
+# pretenden explicar o predecir una variable a partir de un conjunto de variables predictoras utilizando un conjunto de reglas sencillas. 
+# 3. -> Random Forest -> Bosques Aleatorios
+# 4. -> k-medias -> no supervisado, usado para clusterización
 """
-# 1. -> Regresión líneal - Supervisado - Aproximación que modela una relación entre una variable escalar dependiente ("Y") y una o más variables explicativas/independientes ("X")
-"""
-# Dibujará una recta y=mx+b => que nos indicará la tendencia del conjunto de datos, y nos ayudará a predecir en función de un valor X un valor Y. 
-# Ecuación matemática que representa una línea recta. 
-# Intentará pasar por la mayor cantidad de datos posibles.
-# Es la representación mas adecuada de la distribución de los datos en un diagrama de dispersión
-# y => coordenada Y
-# m => pendiente
-# x => coordenada X
-# b => Ordenada en el Origen, intercepción, el punto Y donde la línea cruza el eje Y, relación X,Y
 
-# Procedimiento manual:
-# El procedimiento para generar la regresión líneal utilizando la técnica de ajuste de mínimos cuadrados:
-    
-# - calcular la media aritmética y la varianza tanto de los valores de _x_ como los valores de _y_. 
-
-# Por lo que construiremos una tabla donde calculamos los valores cuadrados de ambas variables y calculamos la sumatoria de cada columna.
-# formulas: img/RegLin_Formulas.png
-
-# sumatoria x =>
-# sumatoria y =>
-# sumatoria x*y => 
-# sumatoria x² =>
-# sumatoria y² =>
-#
-# y=-0.8926x+31.9160 cambiando el valor de x y pintandola en el plano obtenemos la recta de puntos.
-
-# al unir las graficas de la recta de puntos y los datos originales, 
-# se puede observar que tienen comportamientos similares
-# por lo tanto por medio de la ecuación podemos predecir el comportamiento de otros datos.
 
 """
 # 2. -> Regresión Múltiple - Supervisado - Utilizamos regresión múltiple cuando estudiamos la posible relación entre varias variables independientes (predictoras o explicativas) y otra variable dependiente (criterio, explicada, respuesta). ... Las modelos de regresión nos informan de la presencia de relaciones, pero no del mecanismo causal.
@@ -149,42 +281,7 @@ Algorithms: k-Means, spectral clustering, mean-shift,
 i=0  """
 
 
-# Tipos de aprendizaje => Algoritmos => Supervisado, NO Supervisado, De Refuerzo
-
-""" Aprendizaje supervisado => proporcionamos datos de test(conocidos)
-Los algoritmos de aprendizaje supervisado son aquellos que trabajan primeramente aprendiendo con un conjunto de datos de entrenamiento "etiquetados", los cuales recibe para posteriormente trabajar con ellos, intentando asignarles correctamente una etiqueta que coincida con la que previamente tenía. """
-
-""" El comportamiento del algoritmo se corrige en medida a cuántas veces fallo al momento de etiquetar los datos de prueba y posteriormente modifica su comportamiento para las próximas ejecuciones. Después de terminar de entrenar con los datos etiquetados, se somete al algoritmo a trabajar con un conjunto de datos nuevos para los que no se conoce la etiqueta. 
- """
-# Supervisado => necesita datos previamente etiquetados(lo que es correcto y lo que no es correcto) para aprender a realizar el trabajo. En base a esto, el algoritmo aprenderá a resolver problemas futuros similares.a
-
-# -> Regresión líneal,
-# -> Regresión polinomial,
-# -> Máquinas de Soporte Vectorial -> SVM - SVR
-
-""" Aprendizaje no supervisado
-
-Los algoritmos de aprendizaje no supervisado no cuentan con un conjunto de datos "etiquetados" con los cuales puede entrenar y buscan intentar encontrar algún tipo de organización o patrón en los datos de entrada que recibe. Estos algoritmos suelen tener un comportamiento "exploratorio", y en el caso de enfrentar un problema de agrupamiento, estos algoritmos intentan agrupar a los datos por medio de características similares pero no sin saber previamente que tipos de datos va a agrupar. 
- """
- 
-# NO Supervisado => necesita indicaciones previas, No necesita datos previamente etiquetados. Aprende a comprender y a analizar la información. Práctica sobre los datos que tiene. 
-# Busca relaciones entre los datos - para identificarlos - pero no los podrá "etiquetar"
-
-# -> K vecinos más cercanos - KNN
-# -> Árboles de decisión :  https://web.fdi.ucm.es/posgrado/conferencias/JorgeMartin-slides.pdf
-#   CART - Árboles de clasificación y regresión 
-# pretenden explicar o predecir una variable a partir de un conjunto de variables predictoras utilizando un conjunto de reglas sencillas. 
-# -> Random Forest -> Bosques Aleatorios
-# -> k-medias -> no supervisado, usado para clusterización
-
 """ 
-
-Aprendizaje reforzado
-
-Las técnicas de aprendizaje por refuerzo se basan en modificar la respuesta del algoritmo utilizando un proceso de retroalimentación basado en un conjunto de recompensas y castigos que le permiten al algoritmo identificar cuando alguna de las acciones que realizo previamente obtuvo buenos resultados o fue un comportamiento que deberá evitar en futuras ejecuciones. Estas técnicas de aprendizaje intentan simular el proceso de aprendizaje humano, simulando la sensación de que el algoritmo aprende obteniendo información de cómo se modifica el mundo que lo rodea en respuesta de las acciones que produce.  """
-
-# De Refuerzo => aprende por su cuenta, en base a conocimientos introducidos previamente, aprende en función del éxito ó fracaso.
-# La acción le puede generar una recompensa y la repites.. si es un castigo lo evitas 
 
 
 # scikit-learn.org/ -- Machine Learning en Python 
@@ -372,3 +469,35 @@ https://scikit-learn.org/stable/datasets/index.html#boston-dataset
 # Cross Validation -O-J-O-
 # 
 
+
+""" 
+=====================================
+Python libraries for Machine Learning
+=====================================
+NumPy
+-----
+Biblioteca de matemáticas para trabajar con arreglos de n-dimensiones.
+(para trabajar con arreglos, diccionarios, funciones, tipos de datos y trabajar con imagenes).
+
+SciPy
+-----
+Algoritmos númericos y herramientas de dominio especifico, incluyen procesamiento de señales, optimización, estadistica, computación cientifica de alto rendimiento.
+
+matplotlib
+----------
+Proporciona 2D plotting and 3D plotting.
+
+pandas
+------
+estructuras de datos de alto rendimiento fáciles de utilizar. Importación, manipulación y análisis de datos.
+en particular manipular tablas númericas y series de tiempo
+
+scikit-learn - sklearn_library.py
+------------
+Coleccion de Algoritmos y herramientas para ML.
+- Free software ML for Python
+- Mayoría de Algoritmos de clasificación, regresión y agrupamiento.
+- trabajar con Bibliotecas númericas y cientificas de Python, NumPy, SciPy.
+preprocesamiento de datos, seleccion de caracteristicas, extracción de caracteristicas, división de entrenamiento y prueba, definición de Algoritmos, modelos de ajuste, parametros de ajuste, predicciones, evaluación y exportación del modelo.
+
+""" 

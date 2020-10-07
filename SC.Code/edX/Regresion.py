@@ -153,9 +153,10 @@ Metricas para la precisión de los modelos de regresión
 """
 """
     -.- Simple  Regression
+            - Regresión líneal: (Simple Linear Regression).
 
 # ==========================
-# Ejemplo con dataSet Boston
+# Regresión lineal - Ejemplo con dataSet Boston
 # ==========================
 
 """
@@ -501,7 +502,7 @@ plt.plot(X_plot, y_plot,"r--")
 
 """
 # ===================================
-# Ejemplo con dataSet FuelConsumption
+# Regresión lineal - Ejemplo con dataSet FuelConsumption
 # ===================================
 
 data:    
@@ -526,10 +527,12 @@ https://open.canada.ca/data/en/dataset/98f1a129-f628-4ce4-b24d-6f16bf24dd64
 """
 import matplotlib.pyplot as plt
 import pandas as pd
-import pylab as pl
+# import pylab as pl
 import numpy as np
 
-df_FuelConsumption = pd.read_csv("FuelConsumption.csv")
+namefile = "/home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/Machine_Learning/FuelConsumption.csv"
+
+df_FuelConsumption = pd.read_csv(namefile)
 
 df_FuelConsumption.head()
 # [5 rows x 13 columns]
@@ -688,7 +691,11 @@ print("R2-score: %.2f" % r2_score(test_y_ , test_y) )
 Nos sirve para:
     
 - identificar el efecto que tienen las variables independientes en una variable dependiente?
-- Predecir el impacto de cambios, es decir, entender como cambia la variable dependiente, cuando cambiamos las variables independientes.
+- Predecir el impacto de cambios, es decir, entender como cambia la variable dependiente, cuando cambiamos las variables independientes
+
+Utilizamos regresión múltiple cuando estudiamos la posible relación entre varias variables independientes (predictoras o explicativas) y otra variable dependiente (criterio, explicada, respuesta). ... 
+
+Los modelos de regresión nos informan de la presencia de relaciones, pero no del mecanismo causal.
 
 El objetivo y es una combinación líneal de variables independientes, x.
 
@@ -717,7 +724,7 @@ Cuantas variables independientes debemos usar? - evitar Overfit  (Sobreajuste)
 Estas variables deben ser continuas?, se pueden incorporar convirtiendolas en numericas.
 
 # ==========================
-# Ejemplo con dataSet Boston
+# Regresión multiple - Ejemplo con dataSet Boston
 # ==========================
 
 """
@@ -1048,7 +1055,7 @@ mean_squared_error(y_test, y_test_pred)
 
 """
 # ===================================
-# Ejemplo con dataSet FuelConsumption
+# Regresión multiple - Ejemplo con dataSet FuelConsumption
 # ===================================
 
 """
@@ -1131,3 +1138,710 @@ print("Residual sum of squares: %.2f"
 
 print('Variance score: %.2f' % lmm2_FuelConsumption.score(x, y))
 # Variance score: 0.88
+
+"""
+    -.- Simple  Regression
+            - Regresión NO líneal: (Simple Non-Linear Regression)
+
+Se puede predecir el PIB en función del tiempo?, si tienen relación 
+Podemos usar la regresión lineal simple para modelarlo? - presupone que los datos son lineales
+
+Al dibujar los datos se parece a una función logístiva o exponencial.
+
+Existe diferentes tipos de regresión, cuadrática, cúbica... grados infinitos, etc.
+
+Llamado "regresión polinómica", donde la relación entre la variable independiente x y la variable dependiente y se modelan como un polinomio de grado n.
+
+Es importante elegir una regresión que se adapte mejor a los datos.
+
+Las regresiones no-lineales son una relación entre variables independientes 𝑥
+y una variable dependiente 𝑦 que resulta en una función no lineal. 
+
+Básicamente, cada relación que no es lineal puede transformarse en una no lineal,
+ y generalmente se representa con el polinomio de grados 𝑘 (potencia máxima de 𝑥).
+
+ 𝑦=𝑎𝑥3+𝑏𝑥2+𝑐𝑥+𝑑 
+
+Las funciones no lineales pueden tener elementos como exponentes, logaritmos, fracciones y otros. 
+Por ejemplo: 𝑦=log(𝑥) O más complicados, como :
+    
+𝑦=log(𝑎𝑥3+𝑏𝑥2+𝑐𝑥+𝑑)
+
+    -.- Simple Regression, se utiliza una variable independiente para estimar una variable dependiente.
+
+        - Regresión polinomial
+
+Es parecida a la regresión líneal sólo que extiende la función a un polinomio flexible que se puede curvar si es necesario.. etc. 
+
+Representa una curva, y graficará el polinomio que más se parezca a las características de los datos.
+
+Este modelo añade curvatura al elevar la variable _x_ a diferentes potencias. 
+
+De esta manera, se pueden conseguir diferentes funciones que representan y se ajustan más a la distribución de los datos.
+
+El procedimiento para generar la regresión cuadrática utilizando la técnica de ajuste de mínimos cuadrados inicia construyendo un sistema de ecuaciones que son producto de analizar la suma de los cuadrados de los residuos 
+
+Parabola = Polinomio de grado 2 = X² = potencia más grande - Derivadas parciales - 
+
+La regresión polinómica (polynomial) se ajusta a una línea curvada de sus datos.
+
+Los parametros a estimar hacen que el modelo se ajuste perfectamente a los datos subyacentes.
+
+Aunque la relación no es lineal, y la polinomica puede ajustarse, y puede ser expresado como una regresión lineal.
+
+Por lo tanto, se puede utilizar el mismo mecanismo que la regresión lineal para resolver un problema de este tipo, utilizando 
+
+los minimos cuadrados, minimizando la suma de las diferencias entre la variable observada y las predicciones de la función líneal.
+
+No hay una relación lineal entre la variable dependiente y la/las variables independientes.
+
+Su ecuación puede ser exponencial o logaritmica ó logística.. etc.
+
+El cambio de y depende de los cambios en los parámetros no necesariamente en x solamente., es decir, no es líneal por parámetros.
+
+No se puede utilizar el método de minimos cuadrados ordinarios para ajustar los datos y por lo general la estimación de parámetros no es fácil.
+
+Importante: Quer relación existe visualmente entre las variables, trazar gráficos de las variables de salida con cada variable de entrada.
+
+Calcular el coeficiente de correlación entre las variables independientes y dependientes si para TODAS las variables es 0.7 ó superior quiere decir que hay una tendencia lineal.
+
+Cuando no podemos modelar con precisión la relación de los parámetros lineales es mejor usar una regresión NO lineal.
+
+Para modelar estos datos podemos utilizar una regresión polinomial ó transformar los datos.
+
+"""
+"""
+# ==========================
+# Regresión Polinomial - Ejemplo con dataSet Boston - (degree=3) 
+# ==========================
+
+"""
+from sklearn.datasets import load_boston
+
+# Cargamos un conjunto de datos
+boston_dataset = load_boston()
+
+# Se carga pandas para tratamiento posterior
+import pandas as pd
+
+# create DataFrame
+df_Boston = pd.DataFrame(boston_dataset.data,columns=boston_dataset.feature_names)
+# Agregamos la variable de respuesta
+df_Boston['MEDV'] = boston_dataset.target[df_Boston.index]
+df_Boston.head()
+#       CRIM    ZN  INDUS  CHAS    NOX  ...    TAX  PTRATIO       B  LSTAT  MEDV
+# 0  0.00632  18.0   2.31   0.0  0.538  ...  296.0     15.3  396.90   4.98  24.0
+# 1  0.02731   0.0   7.07   0.0  0.469  ...  242.0     17.8  396.90   9.14  21.6
+# 2  0.02729   0.0   7.07   0.0  0.469  ...  242.0     17.8  392.83   4.03  34.7
+# 3  0.03237   0.0   2.18   0.0  0.458  ...  222.0     18.7  394.63   2.94  33.4
+# 4  0.06905   0.0   2.18   0.0  0.458  ...  222.0     18.7  396.90   5.33  36.2
+
+# [5 rows x 14 columns]
+
+df_Boston.corr()["MEDV"].sort_values()
+
+# LSTAT     -0.737663
+# PTRATIO   -0.507787
+# INDUS     -0.483725
+# TAX       -0.468536
+# NOX       -0.427321
+# CRIM      -0.388305
+# RAD       -0.381626
+# AGE       -0.376955
+# CHAS       0.175260
+# DIS        0.249929
+# B          0.333461
+# ZN         0.360445
+# RM         0.695360
+# MEDV       1.000000
+# Name: MEDV, dtype: float64
+
+# todas las filas de una columna de todo el dataSet (array of float)
+X = df_Boston["LSTAT"].values.reshape(-1, 1)
+y = df_Boston["MEDV"].values.reshape(-1, 1)
+
+# Creamos el split de datos - dividir en subconjuntos aleatorios de datos de entrenamiento y datos de prueba
+# test 33% train 67% aleatorios semilla = 100
+from sklearn.model_selection import train_test_split
+# test_size=0.33 => 33% representan la proporción del conjunto de datos a incluir en la división de la prueba
+# random_state => semilla aleatoria => Controla la "barajar" aplicada a los datos antes de aplicar la división. 
+# Pasa un int para una salida reproducible a través de múltiples llamadas de función
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=100) 
+X_train[:5] #  primeros datos del array
+
+# array([[ 6.59],
+#        [ 5.57],
+#        [17.19],
+#        [ 9.69],
+#        [ 8.23]])
+
+from sklearn.preprocessing import PolynomialFeatures
+# Utilizamos la libreria PolynomialFeatures
+# Creando la transformación polinomial
+# degree -> grado de la regresión polinomial
+# (transforma de valor númerico a polinomio)
+poly = PolynomialFeatures(degree=3) 
+
+# Genera un polinomio del grado definido
+# Generar una nueva matriz de características que consiste en todas las combinaciones de polinomios de las características con grado menor o igual al especificado. 
+# Python hace una tranformación de los datos originales a un polinomio
+X_train_poly = poly.fit_transform(X_train)
+X_test_poly = poly.fit_transform(X_test)
+
+# Creamos el modelo 
+from sklearn.linear_model import LinearRegression
+# Creando el módelo de regresión polinomial con una regresión líneal, lmp_Boston
+lmp_Boston = LinearRegression().fit(X_train_poly,y_train)
+
+
+# Predice usando el módelo líneal con los datos de entrenamiento
+y_train_pred = lmp_Boston.predict(X_train_poly)
+type(y_train_pred)
+print(y_train_pred[:5])
+# [[28.79633046]
+#  [31.13307926]
+#  [15.89371615]
+#  [23.07020765]
+#  [25.52211564]]
+# Predice usando el módelo líneal con los datos de prueba
+y_test_pred = lmp_Boston.predict(X_test_poly)
+print(y_test_pred[:5])
+# [[28.73119312]
+#  [35.89345048]
+#  [24.04423668]
+#  [18.88018431]
+#  [20.57656267]]
+
+# Graficamos 
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Le decimos a python que grafique en el mismo fichero
+# Mute inline plotting
+
+# Creamos un scatter plot con los datos de entrenamiento
+plt.scatter(X_train, y_train, color="blue")
+
+# Creamos un scatter plot con los datos de prueba
+plt.scatter(X_test, y_test, color="orange")
+
+# En X_plot guardamos valores distribuidos entre 0 y 40
+# devuelven muestras numéricamente espaciadas, calculadas sobre el intervalo
+X_plot = np.linspace(0,40).reshape(-1, 1) # ordenados por columna
+# print(X_plot)
+
+# X_plot = np.linspace(0,40).reshape(1, -1) # ordenados por fila
+# print(X_plot)
+
+# Con el módelo predecimos X_plot
+# fit_transform toma los valores de x e imprime una lista de los datos que van desde la magnitud 0 a la 2 (ya que hemos seleccionado que nuestro polinómio sea de segundo grado).
+X_plot_poly = poly.fit_transform(X_plot)
+y_plot = lmp_Boston.predict(X_plot_poly)
+
+# Graficamos el módelo
+plt.plot(X_plot, y_plot,"r--")
+
+from sklearn.metrics import r2_score
+print("Entrenamiento", r2_score(y_train, y_train_pred))
+print("Prueba", r2_score(y_test, y_test_pred))
+
+# Entrenamiento 0.682052397497773
+# Prueba 0.6150559372890204
+
+lmp_Boston.score(X_train_poly,y_train)
+# R-squared - R²:  
+ # 0 significa que la variable dependiente no se puede predecir por la variable independiente, 
+ # 1 significa que se predice sin error.
+
+# R-cuadrado explica en qué medida la varianza de una variable explica la varianza de la segunda. 
+# Así pues, si el R² de un módelo es 0.682052397497773, entonces aproximadamente el 68% de la variación observada puede ser explicada por las entradas del módelo.
+
+# Coeficientes
+lmp_Boston.coef_
+# array([[ 0.00000000e+00, -3.91634659e+00,  1.52336683e-01,
+#         -2.04209342e-03]])
+lmp_Boston.intercept_
+ # array([48.57379088])
+ 
+from sklearn.metrics import mean_squared_error
+mean_squared_error(y_test, y_test_pred)
+# 36.80278822808814
+
+"""
+Regresión polinomial - Ejemplo con dataSet Boston - (degree=2) 
+"""
+# todas las filas de una columna de todo el dataSet (array of float)
+X = df_Boston["LSTAT"].values.reshape(-1, 1)
+y = df_Boston["MEDV"].values.reshape(-1, 1)
+
+# Creamos el split de datos - dividir en subconjuntos aleatorios de datos de entrenamiento y datos de prueba
+# test 33% train 67% aleatorios semilla = 100
+from sklearn.model_selection import train_test_split
+# test_size=0.33 => 33% representan la proporción del conjunto de datos a incluir en la división de la prueba
+# random_state => semilla aleatoria => Controla la "barajar" aplicada a los datos antes de aplicar la división. 
+# Pasa un int para una salida reproducible a través de múltiples llamadas de función
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=100) 
+X_train[:5] #  primeros datos del array
+
+# array([[ 6.59],
+#        [ 5.57],
+#        [17.19],
+#        [ 9.69],
+#        [ 8.23]])
+
+from sklearn.preprocessing import PolynomialFeatures
+# Utilizamos la libreria PolynomialFeatures
+# Creando la transformación polinomial
+# degree -> grado de la regresión polinomial
+# (transforma de valor númerico a polinomio)
+poly = PolynomialFeatures(degree=2) 
+
+# Genera un polinomio del grado definido
+# Generar una nueva matriz de características que consiste en todas las combinaciones de polinomios de las características con grado menor o igual al especificado. 
+# Python hace una tranformación de los datos originales a un polinomio
+X_train_poly = poly.fit_transform(X_train)
+X_test_poly = poly.fit_transform(X_test)
+
+# Creamos el modelo 
+from sklearn.linear_model import LinearRegression
+# Creando el módelo de regresión polinomial con una regresión líneal, lmp_Boston
+lmp2_Boston = LinearRegression().fit(X_train_poly,y_train)
+
+
+# Predice usando el módelo líneal con los datos de entrenamiento
+y_train_pred = lmp2_Boston.predict(X_train_poly)
+type(y_train_pred)
+print(y_train_pred[:5])
+# [[29.0989321 ]
+#  [30.90975834]
+#  [15.55908291]
+#  [24.14278519]
+#  [26.3743584 ]]
+# Predice usando el módelo líneal con los datos de prueba
+y_test_pred = lmp2_Boston.predict(X_test_poly)
+print(y_test_pred[:5])
+# [[29.04702244]
+#  [34.34260363]
+#  [25.05293448]
+#  [19.71293929]
+#  [21.62989192]]
+
+# Graficamos 
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Le decimos a python que grafique en el mismo fichero
+# Mute inline plotting
+
+# Creamos un scatter plot con los datos de entrenamiento
+plt.scatter(X_train, y_train, color="blue")
+
+# Creamos un scatter plot con los datos de prueba
+plt.scatter(X_test, y_test, color="orange")
+
+# En X_plot guardamos valores distribuidos entre 0 y 40
+# devuelven muestras numéricamente espaciadas, calculadas sobre el intervalo
+X_plot = np.linspace(0,40).reshape(-1, 1) # ordenados por columna
+# print(X_plot)
+
+# X_plot = np.linspace(0,40).reshape(1, -1) # ordenados por fila
+# print(X_plot)
+
+# Con el módelo predecimos X_plot
+# fit_transform toma los valores de x e imprime una lista de los datos que van desde la magnitud 0 a la 2 (ya que hemos seleccionado que nuestro polinómio sea de segundo grado).
+X_plot_poly = poly.fit_transform(X_plot)
+y_plot = lmp2_Boston.predict(X_plot_poly)
+
+# Graficamos el módelo
+plt.plot(X_plot, y_plot,"r--")
+
+from sklearn.metrics import r2_score
+print("Entrenamiento", r2_score(y_train, y_train_pred))
+print("Prueba", r2_score(y_test, y_test_pred))
+
+# Entrenamiento 0.6607355856920534
+# Prueba 0.6057480327377572
+
+lmp2_Boston.score(X_train_poly,y_train)
+# R-squared - R²:  
+ # 0 significa que la variable dependiente no se puede predecir por la variable independiente, 
+ # 1 significa que se predice sin error.
+
+# R-cuadrado explica en qué medida la varianza de una variable explica la varianza de la segunda. 
+# Así pues, si el R² de un módelo es 0.6607355856920534, entonces aproximadamente el 66% de la variación observada puede ser explicada por las entradas del módelo.
+
+# Coeficientes
+lmp2_Boston.coef_
+# array([[ 0.        , -2.29643714,  0.04285504]])
+lmp2_Boston.intercept_
+# array([42.37133983])
+ 
+from sklearn.metrics import mean_squared_error
+mean_squared_error(y_test, y_test_pred)
+# 37.69267554739093
+
+"""
+# ===================================
+# Regresión polinomial - Ejemplo con dataSet FuelConsumption - (degree=2) 
+# ===================================
+
+"""
+
+import matplotlib.pyplot as plt
+import pandas as pd
+# import pylab as pl
+import numpy as np
+
+namefile = "/home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/Machine_Learning/FuelConsumption.csv"
+
+df_FuelConsumption = pd.read_csv(namefile)
+
+# observar dentro del conjunto de datos
+df_FuelConsumption.head()
+
+#    MODELYEAR   MAKE  ... FUELCONSUMPTION_COMB_MPG CO2EMISSIONS
+# 0       2014  ACURA  ...                       33          196
+# 1       2014  ACURA  ...                       29          221
+# 2       2014  ACURA  ...                       48          136
+# 3       2014  ACURA  ...                       25          255
+# 4       2014  ACURA  ...                       27          244
+
+# [5 rows x 13 columns]
+
+cdf_FuelConsumption = df_FuelConsumption[['ENGINESIZE','CYLINDERS','FUELCONSUMPTION_COMB','CO2EMISSIONS']]
+cdf_FuelConsumption.head(9)
+
+#    ENGINESIZE  CYLINDERS  FUELCONSUMPTION_COMB  CO2EMISSIONS
+# 0         2.0          4                   8.5           196
+# 1         2.4          4                   9.6           221
+# 2         1.5          4                   5.9           136
+# 3         3.5          6                  11.1           255
+# 4         3.5          6                  10.6           244
+# 5         3.5          6                  10.0           230
+# 6         3.5          6                  10.1           232
+# 7         3.7          6                  11.1           255
+# 8         3.7          6                  11.6           267
+
+# Graficamos los valores de emission respecto al tamaño del motor
+plt.scatter(cdf_FuelConsumption.ENGINESIZE, cdf_FuelConsumption.CO2EMISSIONS,  color='blue')
+plt.xlabel("Engine size")
+plt.ylabel("Emission")
+plt.show()
+
+# conjunto de entrenamiento y pruebas 
+msk = np.random.rand(len(df_FuelConsumption)) < 0.8
+train = cdf_FuelConsumption[msk]
+test = cdf_FuelConsumption[~msk]
+
+# Ahora, si seleccionamos el grado del polinomio como 2, 
+# generará 3 características; degree=0, degree=1, degree=2:
+
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn import linear_model
+train_X = np.asanyarray(train[['ENGINESIZE']])
+train_y = np.asanyarray(train[['CO2EMISSIONS']])
+
+test_X = np.asanyarray(test[['ENGINESIZE']])
+test_y = np.asanyarray(test[['CO2EMISSIONS']])
+
+poly = PolynomialFeatures(degree=2)
+# fit_transform toma los valores de X e imprime una lista de los datos que van desde 
+# la magnitud 0 a la 2 (ya que hemos seleccionado que nuestro polinómio sea de segundo grado).
+train_X_poly = poly.fit_transform(train_X)
+
+train_X_poly
+# array([[ 1.  ,  2.  ,  4.  ],
+#        [ 1.  ,  1.5 ,  2.25],
+#        [ 1.  ,  3.5 , 12.25],
+#        ...,
+#        [ 1.  ,  3.2 , 10.24],
+#        [ 1.  ,  3.2 , 10.24],
+#        [ 1.  ,  3.2 , 10.24]])
+
+# Ahora podemos manejar el problema como si se tratara de una 'regresión lineal'. 
+# Por lo tanto, esta regresión polinomica se considera como un caso especial de regresión lineal múltiple. 
+# Puede utilizar la misma mecánica para resolver dicho problema.
+
+# Usemos la función LinearRegression() para resolver:
+    
+lmp_FuelConsumption = linear_model.LinearRegression()
+train_y_ = lmp_FuelConsumption.fit(train_X_poly, train_y)
+
+# los coeficientes 
+print ('Coefficients: ', lmp_FuelConsumption.coef_)
+# Coefficients:  [[ 0.         51.58636894 -1.66106358]]
+
+print ('Intercept: ', lmp_FuelConsumption.intercept_)
+# Intercept:  [104.88578442]
+
+# Como se mencionó anteriormente Coeficiente e Intercepción son los parámetros de ajuste de la línea curva. 
+# Dado que se trata de una regresión lineal multiple con 3 parámetros y sabiendo que estos son 
+# la intercepción y el coeficiente del hiperplano, sklearn los estimó desde un nuevo conjunto de características. 
+# Grafiquemoslo:
+    
+plt.scatter(train.ENGINESIZE, train.CO2EMISSIONS,  color='blue')
+XX = np.arange(0.0, 10.0, 0.1)
+yy = lmp_FuelConsumption.intercept_[0]+ lmp_FuelConsumption.coef_[0][1]*XX + lmp_FuelConsumption.coef_[0][2]*np.power(XX, 2)
+plt.plot(XX, yy, '-r' )
+plt.xlabel("Engine size")
+plt.ylabel("Emission")   
+
+# Text(0, 0.5, 'Emission')
+  
+from sklearn.metrics import r2_score
+
+test_X_poly = poly.fit_transform(test_X)
+test_y_ = lmp_FuelConsumption.predict(test_X_poly)
+
+print("Mean absolute error: %.2f" % np.mean(np.absolute(test_y_ - test_y)))
+print("Residual sum of squares (MSE): %.2f" % np.mean((test_y_ - test_y) ** 2))
+print("R2-score: %.2f" % r2_score(test_y_ , test_y) ) 
+
+# Mean absolute error: 23.91
+# Residual sum of squares (MSE): 998.15
+# R2-score: 0.63
+
+"""
+# Regresión polinomial - Ejemplo con dataSet FuelConsumption - (degree=3) 
+"""
+
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn import linear_model
+train_X = np.asanyarray(train[['ENGINESIZE']])
+train_y = np.asanyarray(train[['CO2EMISSIONS']])
+
+test_X = np.asanyarray(test[['ENGINESIZE']])
+test_y = np.asanyarray(test[['CO2EMISSIONS']])
+
+poly = PolynomialFeatures(degree=3)
+# fit_transform toma los valores de X e imprime una lista de los datos que van desde 
+# la magnitud 0 a la 3 (ya que hemos seleccionado que nuestro polinómio sea de tercer grado).
+train_X_poly = poly.fit_transform(train_X)
+
+train_X_poly
+# array([[ 1.   ,  2.   ,  4.   ,  8.   ],
+#        [ 1.   ,  1.5  ,  2.25 ,  3.375],
+#        [ 1.   ,  3.5  , 12.25 , 42.875],
+#        ...,
+#        [ 1.   ,  3.2  , 10.24 , 32.768],
+#        [ 1.   ,  3.2  , 10.24 , 32.768],
+#        [ 1.   ,  3.2  , 10.24 , 32.768]])
+
+# Ahora podemos manejar el problema como si se tratara de una 'regresión lineal'. 
+# Por lo tanto, esta regresión polinomica se considera como un caso especial de regresión lineal múltiple. 
+# Puede utilizar la misma mecánica para resolver dicho problema.
+
+# Usemos la función LinearRegression() para resolver:
+    
+lmp2_FuelConsumption = linear_model.LinearRegression()
+train_y_ = lmp2_FuelConsumption.fit(train_X_poly, train_y)
+
+# los coeficientes 
+print ('Coefficients: ', lmp2_FuelConsumption.coef_)
+# Coefficients:  [[ 0.         26.80947921  5.12682419 -0.55933504]]
+
+print ('Intercept: ', lmp2_FuelConsumption.intercept_)
+# Intercept:  [131.27232154]
+
+# Como se mencionó anteriormente Coeficiente e Intercepción son los parámetros de ajuste de la línea curva. 
+# Dado que se trata de una regresión lineal multiple con 3 parámetros y sabiendo que estos son 
+# la intercepción y el coeficiente del hiperplano, sklearn los estimó desde un nuevo conjunto de características. 
+# Grafiquemoslo:
+    
+plt.scatter(train.ENGINESIZE, train.CO2EMISSIONS,  color='orange')
+XX = np.arange(0.0, 10.0, 0.1)
+yy = lmp2_FuelConsumption.intercept_[0]+ lmp2_FuelConsumption.coef_[0][1]*XX + lmp2_FuelConsumption.coef_[0][2]*np.power(XX, 2) + lmp2_FuelConsumption.coef_[0][3]*np.power(XX, 3)
+plt.plot(XX, yy, '-r' )
+plt.xlabel("Engine size")
+plt.ylabel("Emission")   
+
+# Text(0, 0.5, 'Emission')
+  
+from sklearn.metrics import r2_score
+
+test_X_poly = poly.fit_transform(test_X)
+test_y_ = lmp2_FuelConsumption.predict(test_X_poly)
+
+print("Mean absolute error: %.2f" % np.mean(np.absolute(test_y_ - test_y)))
+print("Residual sum of squares (MSE): %.2f" % np.mean((test_y_ - test_y) ** 2))
+print("R2-score: %.2f" % r2_score(test_y_ , test_y) ) 
+
+# Mean absolute error: 24.00
+# Residual sum of squares (MSE): 1002.15
+# R2-score: 0.64
+"""
+# ===================================
+# Regresión NO lineal - Ejemplo con dataSet GDP de China entre los años 1960 y 2014. 
+# ===================================
+"""
+import numpy as np
+import pandas as pd
+
+namefile = "/home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/edX/Machine_Learning/china_gdp.csv"
+
+df_GDPChina = pd.read_csv(namefile)
+df_GDPChina.head(10)
+
+#    Year         Value
+# 0  1960  5.918412e+10
+# 1  1961  4.955705e+10
+# 2  1962  4.668518e+10
+# 3  1963  5.009730e+10
+# 4  1964  5.906225e+10
+# 5  1965  6.970915e+10
+# 6  1966  7.587943e+10
+# 7  1967  7.205703e+10
+# 8  1968  6.999350e+10
+# 9  1969  7.871882e+10
+
+# Graficamos
+
+plt.figure(figsize=(8,5))
+X_data, y_data = (df_GDPChina["Year"].values, df_GDPChina["Value"].values)
+plt.plot(X_data, y_data, 'ro')
+plt.ylabel('GDP')
+plt.xlabel('Year')
+plt.show()
+
+# A primera vista, determinamos que la función lógica podría ser una buena primera aproximación, ya que tiene la propiedad de comenzar con un crecimiento leve, aumentando en el medio y luego descendiendo nuevamente hacia el final; como se ve debajo:
+
+# numpy.ndarray of float que va desde -5 a 5 incrementos de 0.1 length 100
+X = np.arange(-5.0, 5.0, 0.1)
+len(X)
+type(X)
+
+# Calcula el exponente de -X
+np.exp(-X)
+# array([1.48413159e+02, 1.34289780e+02, 1.21510418e+02, 1.09947172e+02,
+#        9.94843156e+01, 9.00171313e+01, 8.14508687e+01, 7.36997937e+01,
+#        6.66863310e+01, 6.03402876e+01, 5.45981500e+01, 4.94024491e+01,
+#        4.47011845e+01, 4.04473044e+01, 3.65982344e+01, 3.31154520e+01,
+#        2.99641000e+01, 2.71126389e+01, 2.45325302e+01, 2.21979513e+01,
+#        2.00855369e+01, 1.81741454e+01, 1.64446468e+01, 1.48797317e+01,
+#        1.34637380e+01, 1.21824940e+01, 1.10231764e+01, 9.97418245e+00,
+#        9.02501350e+00, 8.16616991e+00, 7.38905610e+00, 6.68589444e+00,
+#        6.04964746e+00, 5.47394739e+00, 4.95303242e+00, 4.48168907e+00,
+#        4.05519997e+00, 3.66929667e+00, 3.32011692e+00, 3.00416602e+00,
+#        2.71828183e+00, 2.45960311e+00, 2.22554093e+00, 2.01375271e+00,
+#        1.82211880e+00, 1.64872127e+00, 1.49182470e+00, 1.34985881e+00,
+#        1.22140276e+00, 1.10517092e+00, 1.00000000e+00, 9.04837418e-01,
+#        8.18730753e-01, 7.40818221e-01, 6.70320046e-01, 6.06530660e-01,
+#        5.48811636e-01, 4.96585304e-01, 4.49328964e-01, 4.06569660e-01,
+#        3.67879441e-01, 3.32871084e-01, 3.01194212e-01, 2.72531793e-01,
+#        2.46596964e-01, 2.23130160e-01, 2.01896518e-01, 1.82683524e-01,
+#        1.65298888e-01, 1.49568619e-01, 1.35335283e-01, 1.22456428e-01,
+#        1.10803158e-01, 1.00258844e-01, 9.07179533e-02, 8.20849986e-02,
+#        7.42735782e-02, 6.72055127e-02, 6.08100626e-02, 5.50232201e-02,
+#        4.97870684e-02, 4.50492024e-02, 4.07622040e-02, 3.68831674e-02,
+#        3.33732700e-02, 3.01973834e-02, 2.73237224e-02, 2.47235265e-02,
+#        2.23707719e-02, 2.02419114e-02, 1.83156389e-02, 1.65726754e-02,
+#        1.49955768e-02, 1.35685590e-02, 1.22773399e-02, 1.11089965e-02,
+#        1.00518357e-02, 9.09527710e-03, 8.22974705e-03, 7.44658307e-03])
+
+# numpy.ndarray of float que va desde 0 a 1 incrementos de 0.1 length 100
+Y = 1.0 / (1.0 + np.exp(-X))
+len(Y)
+type(Y)
+
+# array([0.00669285, 0.00739154, 0.00816257, 0.0090133 , 0.0099518 ,
+#        0.01098694, 0.01212843, 0.01338692, 0.01477403, 0.0163025 ,
+#        0.01798621, 0.01984031, 0.02188127, 0.02412702, 0.02659699,
+#        0.02931223, 0.03229546, 0.03557119, 0.03916572, 0.04310725,
+#        0.04742587, 0.05215356, 0.05732418, 0.06297336, 0.06913842,
+#        0.07585818, 0.0831727 , 0.09112296, 0.09975049, 0.10909682,
+#        0.11920292, 0.13010847, 0.14185106, 0.15446527, 0.16798161,
+#        0.18242552, 0.19781611, 0.21416502, 0.23147522, 0.24973989,
+#        0.26894142, 0.2890505 , 0.31002552, 0.33181223, 0.35434369,
+#        0.37754067, 0.40131234, 0.42555748, 0.450166  , 0.47502081,
+#        0.5       , 0.52497919, 0.549834  , 0.57444252, 0.59868766,
+#        0.62245933, 0.64565631, 0.66818777, 0.68997448, 0.7109495 ,
+#        0.73105858, 0.75026011, 0.76852478, 0.78583498, 0.80218389,
+#        0.81757448, 0.83201839, 0.84553473, 0.85814894, 0.86989153,
+#        0.88079708, 0.89090318, 0.90024951, 0.90887704, 0.9168273 ,
+#        0.92414182, 0.93086158, 0.93702664, 0.94267582, 0.94784644,
+#        0.95257413, 0.95689275, 0.96083428, 0.96442881, 0.96770454,
+#        0.97068777, 0.97340301, 0.97587298, 0.97811873, 0.98015969,
+#        0.98201379, 0.9836975 , 0.98522597, 0.98661308, 0.98787157,
+#        0.98901306, 0.9900482 , 0.9909867 , 0.99183743, 0.99260846])
+
+# Graficamos
+plt.plot(X,Y) 
+plt.ylabel('Variable Dependiente')
+plt.xlabel('Variable Independiente')
+plt.show()
+
+# La formúla para la función logística:
+
+# 𝑌̂ =11+𝑒𝛽1(𝑋−𝛽2)
+# 𝛽1: Controla lo llano de la curva,
+# 𝛽2: Lleva la curva sobre el eje x.
+
+# La funcion sigmoid será la que calcule la fromula de la funcion logistica:
+
+def sigmoid(X, Beta_1, Beta_2):
+     y = 1 / (1 + np.exp(-Beta_1*(X-Beta_2)))
+     return y
+ 
+beta_1 = 0.10
+beta_2 = 1990.0
+
+#función logística
+Y_pred = sigmoid(X_data, beta_1 , beta_2)
+
+#predicción de puntos
+plt.plot(X_data, Y_pred*15000000000000.)
+plt.plot(X_data, y_data, 'ro')
+
+# Normalicemos primero nuestro X e y:
+Xdata = X_data/max(X_data)
+ydata = y_data/max(y_data)
+
+# curve_fit utiliza cuadrados mínimos no lineales 
+# para cuadrar con la función sigmoide. 
+# Los valores óptimos para los parámetros que suman los residuos cuadrados de sigmoid
+# (Xdata, *popt) - ydata minimizado.
+
+# popt son nuestros parámetros optimizados.
+
+from scipy.optimize import curve_fit
+popt, pcov = curve_fit(sigmoid, Xdata, ydata)
+# imprimir los parámetros finales
+print(" beta_1 = %f, beta_2 = %f" % (popt[0], popt[1]))
+# beta_1 = 690.453017, beta_2 = 0.997207
+
+# linspace devuelven muestras numéricamente espaciadas, calculadas sobre el intervalo
+X = np.linspace(1960, 2020, 55)
+X = X/max(X)
+
+plt.figure(figsize=(8,5))
+y = sigmoid(X, *popt)
+plt.plot(Xdata, ydata, 'ro', label='data')
+plt.plot(X,y, linewidth=3.0, label='fit')
+plt.legend(loc='best')
+plt.ylabel('GDP')
+plt.xlabel('Year')
+plt.show()
+
+# exactitud de nuestro modelo
+# divide los datos en entrenamiento y prueba
+msk = np.random.rand(len(df_GDPChina)) < 0.8
+train_X = Xdata[msk]
+test_X = Xdata[~msk]
+train_y = ydata[msk]
+test_y = ydata[~msk]
+
+# construye el modelo utilizando el set de entrenamiento
+popt, pcov = curve_fit(sigmoid, train_X, train_y)
+
+# predecir utilizando el set de prueba
+y_pred = sigmoid(test_X, *popt)
+
+# evaluation
+print("Promedio de error absoluto: %.2f" % np.mean(np.absolute(y_pred - test_y)))
+print("Suma residual de cuadrados (MSE): %.2f" % np.mean((y_pred - test_y) ** 2))
+from sklearn.metrics import r2_score
+print("R2-score: %.2f" % r2_score(y_pred , test_y) )
+
+# Promedio de error absoluto: 0.03
+# Suma residual de cuadrados (MSE): 0.00
+# R2-score: 0.96

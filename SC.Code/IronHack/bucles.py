@@ -1,10 +1,25 @@
+"""
+@author: scelis - ¯\_(ツ)_/¯
+"""
 ##########################################
 # Primer ejemplo: range                  #
 # numero empieza 0 < 10 e incremento en 1#
 ##########################################
+print(range(3)) # range(0, 3)
+
 for numero in range(10):
 	print(numero)
 
+for i in range(0, 5):
+    print("i: ", [i])
+
+# O-J-O Ejecucion 
+# i:  [0]
+# i:  [1]
+# i:  [2]
+# i:  [3]
+# i:  [4]
+    
 # Primer ejemplo: range
 # numero empieza 0 < 10 e incremento en 1
 for numero in range(10):
@@ -208,11 +223,23 @@ for estudiante in estudiantes:
 # ('Ron', 'vio', 'Terminator 2', 'y le puso una nota de', 8.9)
 # ('Ron', 'vio', 'Arma Letal', 'y le puso una nota de', 7.3)
 
+print("--------------------")
+for i, j in enumerate(valoraciones.items()):
+    print(i, j)
 
+# -O-J-O- Ejecución 
+
+# 0 ('Alien', 9.5)
+# 1 ('Terminator 2', 8.9)
+# 2 ('Arma Letal', 7.3)
+
+# -O-J-O- Ejecución 
+
+print("--------------------")
 for i in range(5):
   print ('A number:', i)
 
-# O-J-O Ejecucion: 
+# -O-J-O- Ejecución 
 #A number: 0
 #A number: 1
 #A number: 2
@@ -226,7 +253,7 @@ primes = [2, 3, 5, 7]
 for prime in primes:
     print(prime)
 
-# O-J-O Ejecucion: 
+# -O-J-O- Ejecución 
 # 2
 # 3
 # 5
@@ -239,14 +266,14 @@ a = [2, 2, 2, 1, 6, 8, 2, 4]
 for i in a:
     if i == 2:
         count = count + 1
-print("La cuenta total es %d: " %count) # O-J-O Ejecucion: La cuenta total es 4:
+print("La cuenta total es %d: " %count) # -O-J-O- Ejecución La cuenta total es 4:
 
 print("--------------------")
 
 
 for e in range(len(a)):
     print(e,a[e])
-    # O-J-O Ejecucion: 
+    # -O-J-O- Ejecución 
     # 0 2
     # 1 2
     # 2 2
@@ -257,23 +284,25 @@ for e in range(len(a)):
     # 7 4   
     if e == 2:
         count = count + 1
-print("La cuenta total es: " + str(count)) # O-J-O Ejecucion: La cuenta total es: 5
+print("La cuenta total es: " + str(count)) # -O-J-O- Ejecución La cuenta total es: 5
+
 
 print("--------------------")
 for x in range(5):
     print(x)
-    # O-J-O Ejecucion: 
+    # -O-J-O- Ejecución 
     # 0
     # 1
     # 2
     # 3
     # 4
 
+
 print("--------------------")
 
 for x in range(3, 6):
     print(x)
-    # O-J-O Ejecucion: 
+    # -O-J-O- Ejecución 
     # 3
     # 4
     # 5
@@ -282,7 +311,7 @@ for x in range(3, 6):
 print("--------------------")
 for x in range(3, 8, 2):
     print(x)
-    # O-J-O Ejecucion: 
+    # -O-J-O- Ejecución 
     # 3
     # 5
     # 7
@@ -297,15 +326,15 @@ lst1=[i for i in range(1, 11)]
 lst2=[j for j in range(1, 11)]
 lst3=[]
 total = 0
-print ("lst1: " + str(lst1)) # O-J-O Ejecucion: lst1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print ("lst2: " + str(lst2)) # O-J-O Ejecucion: lst2: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print ("lst1: " + str(lst1)) # -O-J-O- Ejecución lst1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print ("lst2: " + str(lst2)) # -O-J-O- Ejecución lst2: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for x in lst1:
   for y in lst2:
     z = (x + y)
     lst3.append(z)
     total += z
-print (lst3) # O-J-O Ejecucion: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-print ("total: " + str(total)) # O-J-O Ejecucion: total: 1100
+print (lst3) # -O-J-O- Ejecución [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+print ("total: " + str(total)) # -O-J-O- Ejecución total: 1100
 
 
 # Python code to demonstrate range() vs xrange() - no funciona en Python 3.7.4
@@ -314,8 +343,11 @@ print ("total: " + str(total)) # O-J-O Ejecucion: total: 1100
 # initializing a with range() 
 a = range(1,10000) 
   
-# initializing a with xrange() 
-x = xrange(1,10000) 
+# initializing a with xrange()  # or # initializing a with range()
+# x = xrange(1,10000)  # or 
+x = range(1,10000)
+# # initializing a with xrange() 
+# x = xrange(1,10000) 
 
 # testing the type of a 
 print ("The return type of range() is : ") 
@@ -412,6 +444,67 @@ else:
 # i: 5 - a: 0.000000
 # break:
 
+# Let’s say we would like to iterate through list dates and stop at the year 1973, then print out the number of iterations. This can be done with the following block of code:
+
+# While Loop Example
+dates = [1982, 1980, 1973, 2000]
+
+i = 0
+year = 0
+
+while(year != 1973):
+    year = dates[i]
+    i = i + 1
+    print(year)
+
+print("It took ", i ,"repetitions to get out of loop.")    
+
+# 1982
+# 1980
+# 1973
+# It took  3 repetitions to get out of loop.
+
+# Imprime los valores de una lista con while loop
+# display the values of the Rating of an album playlist stored in the list PlayListRatings
+PlayListRatings = [10, 9.5, 10, 8, 7.5, 5, 10, 10]
+score = PlayListRatings[0]
+i = 0
+while(score >= 6):
+    print ("i:", i, "score:",PlayListRatings[i]) 
+    i+=1
+    score = PlayListRatings[i]
+print("este es el primer menor que 6", "i:", i, "score:",PlayListRatings[i])
+
+# i: 0 score: 10
+# i: 1 score: 9.5
+# i: 2 score: 10
+# i: 3 score: 8
+# i: 4 score: 7.5
+# este es el primer menor que 6 i: 5 score: 5
+
+squares = ['orange', 'orange', 'purple', 'blue ', 'orange']
+new_squares = []
+i = 0
+while(squares[i] == 'orange'):
+    new_squares.append(squares[i])
+    i = i + 1
+print (new_squares)
+# ['orange', 'orange']
+
+squares = ['orange', 'orange', 'purple', 'blue ', 'orange']
+len(squares)
+type(squares)
+new_squares = []
+i=0
+color = squares[i]
+print(color, type(color))
+while(color == 'orange'):
+    print(color)
+    i += 1
+    new_squares.append(color)
+    color = squares[i]
+print("new_squares", new_squares)
+# new_squares ['orange', 'orange']
 
 ###############
 #  Excercise  #
@@ -438,7 +531,7 @@ for i in numbers:
     else:
       continue
 
-# O-J-O Ejecucion:
+# -O-J-O- Ejecución
 # i: 402	     
 # i: 984	     
 # i: 360	     
@@ -473,7 +566,7 @@ for number in numbers:
 
     print(number)
 
-# O-J-O Ejecucion:
+# -O-J-O- Ejecución
 # 402
 # 984
 # 360
@@ -497,3 +590,76 @@ for number in numbers:
 # 758
 # 918
 
+print("--------------------")
+
+foods = ['apples', 'bread', 'cheese', 'milk', 'bananas', 'graves']
+
+for food in foods:
+    if food == 'cheese':
+        print(f"you have to buy this product: {food}")
+    print(food)
+
+# -O-J-O- Ejecución
+
+# apples
+# bread
+# you have to buy this product: cheese
+# cheese
+# milk
+# bananas
+# graves
+
+print("--------------------")
+
+# For loop example
+
+dates = [1982,1980,1973]
+N = len(dates)
+
+for i in range(N):
+    print(dates[i])   
+
+# -O-J-O- Ejecución
+# 1982
+# 1980
+# 1973
+
+# Use for loop to change the elements in list
+squares = ['red', 'yellow', 'green', 'purple', 'blue']
+
+for i in range(0, 5):
+    print("Antes square ", i, 'is',  squares[i])
+    squares[i] = 'weight'
+    print("Despues square ", i, 'is',  squares[i])
+    
+# access the index and the elements of a list 
+# Loop through the list and iterate on both index and element value
+squares=['red', 'yellow', 'green', 'purple', 'blue']
+
+# i is the index 
+# square is the element in the list
+# imprime el indice y el elemento de la lista a la vez
+for i, square in enumerate(squares):
+    print(i, square)    
+    
+# 0 red
+# 1 yellow
+# 2 green
+# 3 purple
+# 4 blue    
+
+# the elements
+Genres = ['rock', 'R&B', 'Soundtrack', 'R&B', 'soul', 'pop']
+for i in Genres:
+    print(i)
+
+
+#the elements and index
+Genres=[ 'rock', 'R&B', 'Soundtrack', 'R&B', 'soul', 'pop']
+for i, j in enumerate(Genres):
+    print(i, j)
+
+
+# all the element between -5 and 5 
+for i in range(-5,6):
+    print(i)

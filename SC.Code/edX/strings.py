@@ -203,15 +203,15 @@ print("dir(tipo de dato) # Que podemos hacer con cierto tipo de dato - métodos"
 # dir(tipo de dato) # Que podemos hacer con cierto tipo de dato - métodos
 # ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 
-print("1. ", myStr.upper()) # Mayúscula
-print("2. ", myStr.lower()) # Minúscula
-print("3. ", myStr.swapcase()) # Mayúscula a Minúscula y viceversa
-print("4. ", myStr.capitalize()) # rimera letra en Mayúscula
-print("5. ", myStr.replace('Hello', 'bye').upper()) # métodos encadenados
-print("6. ", myStr.count('l')) # cuenta los caracteres encontrados en la cadena
-print("7. ", myStr.count('o'))
-print("8. ", myStr.count(' '))
-print("9. ", myStr.startswith('hola ')) # El texto empieza por..(busca por caracteres)
+print("01. ", myStr.upper()) # Mayúscula
+print("02. ", myStr.lower()) # Minúscula
+print("03. ", myStr.swapcase()) # Mayúscula a Minúscula y viceversa
+print("04. ", myStr.capitalize()) # rimera letra en Mayúscula
+print("05. ", myStr.replace('Hello', 'bye').upper()) # métodos encadenados
+print("06. ", myStr.count('l')) # cuenta los caracteres encontrados en la cadena
+print("07. ", myStr.count('o'))
+print("08. ", myStr.count(' '))
+print("09. ", myStr.startswith('hola ')) # El texto empieza por..(busca por caracteres)
 print("10. ", myStr.endswith('ld')) # El texto termina por..(busca por caracteres)
 print("11. ", myStr.__add__(' hola munDo').upper()) # adiciona texto a la cadena
 print("12. ", myStr.split()) # separa el texto en una lista a partir de espacio en blanco por default-defecto
@@ -237,15 +237,15 @@ print(f"29.  My String is: {myStr}") # otra forma de concatenar - v3.6 -->
 print("30. ", "My String is: {0}".format(myStr)) # unión de strings - concatenar - v3.6 -->
 
 # -O-J-O- Ejecución
-# 1.  HELLO WORLD, HOLA MUNDO ESTO ES UNA CADENA
-# 2.  hello world, hola mundo esto es una cadena
-# 3.  hELLO wORLD, hOLA mUNDO ESTO ES UNA CADENA
-# 4.  Hello world, hola mundo esto es una cadena
-# 5.  BYE WORLD, HOLA MUNDO ESTO ES UNA CADENA
-# 6.  4
-# 7.  5
-# 8.  7
-# 9.  False
+# 01.  HELLO WORLD, HOLA MUNDO ESTO ES UNA CADENA
+# 02.  hello world, hola mundo esto es una cadena
+# 03.  hELLO wORLD, hOLA mUNDO ESTO ES UNA CADENA
+# 04.  Hello world, hola mundo esto es una cadena
+# 05.  BYE WORLD, HOLA MUNDO ESTO ES UNA CADENA
+# 06.  4
+# 07.  5
+# 08.  7
+# 09.  False
 # 10.  False
 # 11.  HELLO WORLD, HOLA MUNDO ESTO ES UNA CADENA HOLA MUNDO
 # 12.  ['Hello', 'World,', 'Hola', 'Mundo', 'esto', 'es', 'una', 'cadena']
@@ -271,9 +271,14 @@ print("30. ", "My String is: {0}".format(myStr)) # unión de strings - concatena
 
 
 myInteger = 10
+
+
+myInteger.__eq__(10)
+# -O-J-O- Ejecución
+# True
+
 # dir(myInteger)
 # print(dir(myInteger))
-
 # -O-J-O- Ejecución
 # ['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
 

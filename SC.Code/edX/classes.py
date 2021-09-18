@@ -4,7 +4,7 @@
 *********************
 * Created on Sat Aug  7 22:24:26 2021
 *********************
-* fechas.py
+* classes.py
 *********************
 * Version: 001
 *********************
@@ -13,7 +13,7 @@
 * Copyright (c) 2021 SCelis
 * All Rights Reserved.
 *********************
-* Pruebas con fechas
+* Pruebas con classes
 *********************
 * ChangeLog:
 *

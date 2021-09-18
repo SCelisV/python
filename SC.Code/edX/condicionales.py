@@ -140,6 +140,9 @@ print("--------------------")
 statement = True
 another_statement = True
 
+# O-J-O- Ejecucion:
+# else: if statement is True:
+
 if statement is True:
     # do something
     print(f"if statement is: {statement}")

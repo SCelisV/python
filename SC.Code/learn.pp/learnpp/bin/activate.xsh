@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/hadoop/SCProjects/learn.pp/learnpp"
+$VIRTUAL_ENV = r"/home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/learn.pp/learnpp"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

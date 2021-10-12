@@ -1,6 +1,6 @@
 import pandas as pd
 print("----------------------------------")
-fichero = "/home/hadoop/0_DEVELOP__0_DEVELOP__0_DEVELOP__/Python/PycharmProjects/pythonPUE/fichero.csv"
+fichero = "/home/hadoop/0_DEVELOP__0_DEVELOP__0_DEVELOP__/Python/PycharmProjects/pythonPUE/files/fichero.csv"
 df = pd.read_csv(fichero)
 print(df)
 print("\ndf.head(): ", df.head())
@@ -14,7 +14,7 @@ print("\ndf.head(): ", df.head())
 df.head():     0  Jason    Miller  42   4  25.000
 """
 print("----------------------------------")
-input_file = "/home/hadoop/0_DEVELOP__0_DEVELOP__0_DEVELOP__/Python/PycharmProjects/pythonPUE/fichero.csv"
+input_file = "/home/hadoop/0_DEVELOP__0_DEVELOP__0_DEVELOP__/Python/PycharmProjects/pythonPUE/files/fichero.csv"
 df = pd.read_csv(input_file, header=0)
 print(df)
 """

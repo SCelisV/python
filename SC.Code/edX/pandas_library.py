@@ -440,3 +440,18 @@ df_songs_gt_1980.to_csv(wcsv_path)
 
 
 dir(df_songs_gt_1980)
+
+
+"""
+0_DEVELOP__0_DEVELOP__0_DEVELOP__PythonEspaudit/Espaudit - SoniaCelis.ipynb
+
+groupby => test.ipynb
+
+There are several ways to select rows from a Pandas dataframe:
+
+    Boolean indexing (df[df['col'] == value] )
+    Positional indexing (df.iloc[...])
+    Label indexing (df.xs(...))
+    df.query(...) API
+
+"""

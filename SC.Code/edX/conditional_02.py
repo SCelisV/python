@@ -169,3 +169,85 @@ else:
 print('All done')
 print('==========')   
 
+
+# Measure some strings:
+words = ['cat', 'window', 'defenestrate']
+
+for w in words:
+    print(w, len(w))
+
+"""
+cat 3
+window 6
+defenestrate 12
+"""
+
+# Create a sample collection
+users = {'Hans': 'active', 'Éléonore': 'inactive', '景太郎': 'active'}
+
+for i in users:
+    print("user: ", i)
+
+"""
+user:  Hans
+user:  Éléonore
+user:  景太郎
+"""
+
+for i, j in users.items():
+    print("user: ", i, "- status: ", j)
+
+"""
+user:  Hans - status:  active
+user:  Éléonore - status:  inactive
+user:  景太郎 - status:  active
+"""
+
+print("<-------------------->")
+
+print("Strategy:  Iterate over a copy - del user status inactive")
+
+for user, status in users.copy().items():
+    if status == 'inactive':
+        del users[user]
+
+for i, j in users.copy().items():
+    print("user: ", i, "- status: ", j)
+
+""" 
+user:  Hans - status:  active
+user:  景太郎 - status:  active
+"""
+
+print("<-------------------->")
+
+print(" Strategy:  Create a new collection" )
+
+active_users = {}
+for user, status in users.items():
+    if status == 'active':
+        active_users[user] = status
+
+for i, j in active_users.items():
+    print("user: ", i, "- status: ", j)
+
+"""
+user:  Hans - status:  active
+user:  景太郎 - status:  active
+"""
+
+print("<-------------------->")
+
+x = int(input("Please enter an integer: "))
+
+if x < 0:
+   x = 0
+   print('Negative changed to zero')
+elif x == 0:
+     print('Zero')
+elif x == 1:
+     print('Single')
+else:
+     print('More')
+
+print("<-------------------->")

@@ -663,3 +663,146 @@ for i, j in enumerate(Genres):
 # all the element between -5 and 5 
 for i in range(-5,6):
     print(i)
+
+
+
+# Measure some strings:
+words = ['cat', 'window', 'defenestrate']
+
+for w in words:
+    print(w, len(w))
+
+"""
+cat 3
+window 6
+defenestrate 12
+"""
+
+# Create a sample collection
+users = {'Hans': 'active', 'Éléonore': 'inactive', '景太郎': 'active'}
+
+for i in users:
+    print("user: ", i)
+
+"""
+user:  Hans
+user:  Éléonore
+user:  景太郎
+"""
+
+for i, j in users.items():
+    print("user: ", i, "- status: ", j)
+
+"""
+user:  Hans - status:  active
+user:  Éléonore - status:  inactive
+user:  景太郎 - status:  active
+"""
+
+print("<-------------------->")
+
+print("Strategy:  Iterate over a copy - del user status inactive")
+
+for user, status in users.copy().items():
+    if status == 'inactive':
+        del users[user]
+
+for i, j in users.copy().items():
+    print("user: ", i, "- status: ", j)
+
+""" 
+user:  Hans - status:  active
+user:  景太郎 - status:  active
+"""
+
+print("<-------------------->")
+
+print(" Strategy:  Create a new collection" )
+
+active_users = {}
+for user, status in users.items():
+    if status == 'active':
+        active_users[user] = status
+
+for i, j in active_users.items():
+    print("user: ", i, "- status: ", j)
+
+"""
+user:  Hans - status:  active
+user:  景太郎 - status:  active
+"""
+
+print("<-------------------->")
+
+for i in active_users:
+    print("active_users")
+    print("i: ", i)
+
+"""
+active_users
+i:  Hans
+active_users
+i:  景太郎
+"""
+seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+print( list(enumerate(seasons)) )                # [(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+
+knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+for k, v in knights.items():
+    print(k, v)
+
+"""
+gallahad the pure
+robin the brave
+"""
+
+for n in range(2, 10):
+   for x in range(2, n):
+       if n % x == 0:
+           print(n, 'equals', x, '*', n//x)
+           break
+   else:
+       #  El bucle se ha roto sin encontrar un factor
+       print(n, 'is a prime number')
+
+"""
+la cláusula else de un bucle se ejecuta cuando no se produce ninguna interrupción.
+
+2 is a prime number
+3 is a prime number
+4 equals 2 * 2
+5 is a prime number
+6 equals 2 * 3
+7 is a prime number
+8 equals 2 * 4
+9 equals 3 * 3
+"""
+for num in range(2, 10):
+    if num % 2 == 0:
+        print("Found an even/par number", num)
+        continue
+    print("Found an odd/impar number", num)
+
+"""
+Found an even/par number 2
+Found an odd/impar number 3
+Found an even/par number 4
+Found an odd/impar number 5
+Found an even/par number 6
+Found an odd/impar number 7
+Found an even/par number 8
+Found an odd/impar number 9
+"""
+"""
+pass Statements
+The pass statement does nothing. 
+It can be used when a statement is required syntactically but the program requires no action. For example:
+"""
+"""
+Cancelar (Ctrl+C)
+
+while True:
+    pass
+
+"""
+

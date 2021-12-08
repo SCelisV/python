@@ -13,6 +13,11 @@
 # For a negative step, the contents of the range are still determined:
 # r[i] = start + step*i where i >= 0 and r[i] > stop.
 
+"""
+En muchos sentidos el objeto devuelto por range() se comporta como si fuera una lista, pero en realidad no lo es. 
+Es un objeto que devuelve los elementos sucesivos de la secuencia deseada cuando se itera sobre él
+"""
+
 lst00=[i for i in range(10)]
 print(str(lst00)) # -O-J-O Ejecución: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -120,4 +125,48 @@ while count <= 10:
 # 9
 # 10
 
-print("--------------------")
+print("<-------------------->")
+
+for i in range(5):
+    print(i)
+
+"""
+0
+1
+2
+3
+4
+"""
+
+print("<-------------------->")
+
+print(list(range(5, 10)))
+"""
+[5, 6, 7, 8, 9]
+"""
+
+print(list(range(0, 10, 3)))
+"""
+[0, 3, 6, 9]
+"""
+
+print(list(range(-10, -100, -30)))
+"""
+[-10, -40, -70]
+"""
+
+a = ['Mary', 'had', 'a', 'little', 'lamb']
+for i in range(len(a)):
+    print(i, a[i])
+
+"""
+0 Mary
+1 had
+2 a
+3 little
+4 lamb
+"""
+
+print(sum(range(4)))                                    # 0 + 1 + 2 + 3 = 6
+
+

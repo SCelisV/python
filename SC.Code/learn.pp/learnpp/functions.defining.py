@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+@author: Fabrizio Romano
 transcript: SCelis
 
-# defining.py
+# functions.defining.py
 Fibonacci series up to n
 We want to print a pair person/age on one line for all of the both list
 Pythonic form

@@ -4,7 +4,8 @@ transcript: SCelis
 
 # func.attributes.py
 
-# /home/hadoop/SCProjects/learn.pp/learnpp
+# /home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/learn.pp/learnpp/
+
 """
 
 def multiplication(a, b=1):
@@ -23,6 +24,7 @@ for attribute in special_attributes:
     print(attribute, '  ->  ', getattr(multiplication, attribute))
 
 """
+
 __doc__   ->   Return a multiplied by b. 
 __name__   ->   multiplication
 __qualname__   ->   multiplication
@@ -34,4 +36,5 @@ __dict__   ->   {}
 __closure__   ->   None
 __annotations__   ->   {}
 __kwdefaults__   ->   None
+
 """

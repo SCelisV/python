@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+@author: Fabrizio Romano
 transcript: SCelis
 
-# defining.ideal.py
+# functions.defining.ideal.py
 
 Pythonic form
 
-# /home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/learn.pp/learnpp/functions.defining.ideal.py
+# /home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/SC.Code/learn.pp/learnpp/
 
 """
 def do_report(data_source):
@@ -20,7 +21,6 @@ def do_report(data_source):
     
 # run algorithms on data
 final_data = analyse(polished_data)
-
 
 # create and return report
 report = Report(final_data)

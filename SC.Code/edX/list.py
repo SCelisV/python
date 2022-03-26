@@ -221,7 +221,8 @@ colors = ['red', 'green', 'blue']
 # - O-J-O- Genera el siguiente error: -
 
 # numbers_list = list(1,2,3,4) => nos devuelve un error
-
+# Traceback (most recent call last):
+#   File "listas.py", line 34, in <module>
 #     numbers_list = list(1,2,3,4)
 # TypeError: list expected at most 1 arguments, got 4 # esperaba sólo un argumento, recibe 4
 

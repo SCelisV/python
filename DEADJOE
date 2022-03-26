@@ -1,0 +1,37 @@
+
+*** These modified files were found in JOE when it aborted on Wed Mar 23 19:33:46 2022
+*** JOE was aborted because the terminal closed
+
+*** File '/tmp/bash-fc.EKKFh3'
+q
+
+find -n "
+
+*** File '(Unnamed)'
+save
+exit
+quit()
+save
+xxxxxç
+iw
+save
+exit
+
+*** File '(Unnamed)'
+
+/home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/.git/COMMIT_EDITMSG
+/home/hadoop/SCProjects/0_SCProjects_github.com_SCelisV/python/.git/COMMIT_EDITMSG
+/tmp/bash-fc.KlVCM6
+* Build Log *
+/tmp/bash-fc.H9gtgR
+/tmp/bash-fc.HN2vaF
+/tmp/bash-fc.fzoiz4
+/tmp/bash-fc.AdCGBQ
+/tmp/bash-fc.bJTK3N
+/tmp/bash-fc.EKKFh3
+
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
